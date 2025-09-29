@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AK Prep</title>
+  <meta name="description" content="College for students by students. Peer-driven guidance for college admissions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --panel: #121214;
+      --soft: #1a1a1d;
+      --card: #161618;
+      --text: #f2f2f3;
+      --muted: #a8a8ad;
+      --accent: #c084fc;
+      --accent-2: #a855f7;
+      --accent-3: #9333ea;
+      --ok: #22c55e;
+      --ring: rgba(192,132,252,0.35);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius-xl: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display:block; max-width:100%; border-radius:14px; }
+    section { padding: 80px 20px; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); background: rgba(12,12,14,0.6); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; padding: 16px 24px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; }
+    .logo { width: 34px; height:34px; border-radius:10px; background: linear-gradient(135deg, var(--accent-2), var(--accent-3)); display:grid; place-items:center; color:#fff; font-weight:800; box-shadow: 0 6px 18px rgba(147,51,234,0.35); }
+    .nav-links { display:flex; gap:18px; align-items:center; }
+    .nav-links a { padding:10px 12px; border-radius:10px; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+    .cta { padding: 10px 16px; border-radius: 12px; font-weight: 700; color:#fff; background: linear-gradient(135deg, var(--accent), var(--accent-3)); box-shadow: 0 8px 26px rgba(147,51,234,0.45); border: none; cursor: pointer; }
+
+    /* HERO */
+    .hero { padding: 120px 20px 80px; }
+    .title { font-size: clamp(36px, 6vw, 64px); font-weight: 800; margin-bottom: 16px; }
+    .subtitle { color: var(--muted); font-size: 18px; max-width: 50ch; margin: 0 auto; }
+
+    /* FOUNDERS */
+    .founders { display:grid; grid-template-columns: repeat(2,1fr); gap:32px; margin-top:24px; }
+    .person { background: var(--card); border-radius: var(--radius-xl); padding:24px; border:1px solid rgba(255,255,255,0.06); text-align:center; }
+    .person img { width:150px; height:150px; object-fit:cover; margin-bottom:12px; }
+
+    /* SERVICES */
+    .feature-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:24px; }
+    .feature { background: var(--card); border:1px solid rgba(255,255,255,0.06); border-radius: var(--radius-xl); padding:20px; }
+    .feature b { display:block; font-size:18px; margin-bottom:6px; }
+
+    .pricing { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:24px; }
+    .plan { background: var(--card); border:1px solid rgba(255,255,255,0.07); border-radius: var(--radius-xl); padding:22px; }
+    .plan h4 { margin: 6px 0; }
+    .price { font-size:28px; font-weight:800; margin:6px 0 12px; }
+
+    /* RESULTS */
+    .carousel-wrap { margin-top:24px; overflow:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; }
+    .carousel { display:flex; gap:16px; min-width: max-content; }
+    .badge { scroll-snap-align: start; display:flex; align-items:center; gap:12px; background: var(--card); border:1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px 16px; }
+    .logo-dot { width:30px; height:30px; border-radius:8px; background: #fff; display:grid; place-items:center; font-size:12px; color:#111; font-weight:900; }
+
+    /* FAQ */
+    .faq { margin-top:24px; display:grid; gap:10px; }
+    details { background: var(--card); border:1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px 16px; }
+    summary { cursor:pointer; font-weight:700; }
+
+    /* CONTACT */
+    .contact-grid { display:grid; grid-template-columns: 1.2fr 1fr; gap:16px; margin-top:24px; }
+    .map { background: var(--card); border:1px solid rgba(255,255,255,0.06); border-radius: var(--radius-xl); min-height: 300px; display:grid; place-items:center; color: var(--muted); }
+    form { background: var(--card); border:1px solid rgba(255,255,255,0.06); border-radius: var(--radius-xl); padding:18px; display:grid; gap:12px; }
+    input, textarea { width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.08); background: var(--soft); color: var(--text); outline: none; }
+    button.primary { padding: 12px 16px; border-radius: 12px; font-weight: 800; color:#fff; background: linear-gradient(135deg, var(--accent), var(--accent-3)); border:0; cursor:pointer; }
+
+    footer { padding: 28px 20px 60px; color: var(--muted); }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner container">
+      <a class="brand" href="#home">
+        <div class="logo">AK</div>
+        <span>AK Prep</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services & Pricing</a>
+        <a href="#results">Results</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="cta">Chat with us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero container">
+    <h1 class="title">AK Prep</h1>
+    <p class="subtitle">College for students by students</p>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <p class="subtitle">AK Prep was founded by students for students to make the admissions process clear, supportive, and empowering.</p>
+      <div class="founders">
+        <div class="person">
+          <img src="Headshot-Krissh Kolhatkar.JPG" alt="Krissh Kolhatkar">
+          <h5>Krissh Kolhatkar</h5>
+          <p>Student at NYU Stern, majoring in Finance and Statistics. Co‑founder of AK Prep.</p>
+        </div>
+        <div class="person">
+          <img src="" alt="Arnav Raghuvanshi">
+          <h5>Arnav Raghuvanshi</h5>
+          <p>Student at NYU Stern, majoring in Finance. Co‑founder of AK Prep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services & Pricing</h2>
+      <div class="feature-grid">
+        <div class="feature"><b>Essay Essentials</b><span>Personal statement + 5 supplements</span></div>
+        <div class="feature"><b>Complete Application</b><span>Support for 8 schools</span></div>
+        <div class="feature"><b>Premier</b><span>Includes interviews and scholarships</span></div>
+      </div>
+      <div class="pricing">
+        <div class="plan"><h4>Starter</h4><div class="price">$1200</div><ul><li>Personal statement coaching</li><li>Three supplement reviews</li></ul></div>
+        <div class="plan"><h4>Core</h4><div class="price">$2800</div><ul><li>Personal statement + 6 supplements</li><li>Weekly check-ins</li></ul></div>
+        <div class="plan"><h4>Premier</h4><div class="price">$4800</div><ul><li>Full app support for 8 schools</li><li>Scholarship strategy</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="container">
+      <h2 class="section-title">Results</h2>
+      <p class="subtitle">Our students have gained admission to top universities.</p>
+      <div class="carousel-wrap">
+        <div class="carousel">
+          <div class="badge"><div class="logo-dot">NYU</div><span>New York University</span></div>
+          <div class="badge"><div class="logo-dot">V</div><span>Vanderbilt</span></div>
+          <div class="badge"><div class="logo-dot">UMA</div><span>UMass Amherst</span></div>
+          <div class="badge"><div class="logo-dot">IUK</div><span>Indiana Kelley</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq">
+        <details><summary>How early should I start?</summary><p>Starting in junior year is ideal, but we support seniors on tighter timelines too.</p></details>
+        <details><summary>Do you write essays for students?</summary><p>No. We coach students to strengthen their own voice.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="subtitle">Reach out for a free consultation.</p>
+      <div class="contact-grid">
+        <div class="map">Embed map here</div>
+        <form>
+          <input required name="name" placeholder="Your name" />
+          <input required type="email" name="email" placeholder="Email" />
+          <textarea required name="message" rows="5" placeholder="Message"></textarea>
+          <button class="primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="logo">AK</div>
+        <span>© <span id="year"></span> AK Prep</span>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="#services">Pricing</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
