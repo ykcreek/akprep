@@ -1,0 +1,153 @@
+/* ------------------------------
+   GLOBAL THEME VARIABLES
+------------------------------ */
+:root {
+  --bg: #ffffff;
+  --panel: #121214;
+  --soft: #1a1a1d; /* use for dark accents and form backgrounds */
+  --border: rgba(16,24,40,0.06); /* subtle border */
+  --card: #f8f5fc;
+
+  /* Typographic scale */
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --base-size: 16px;
+  --scale-rhythm: 1.6;
+
+  /* Spacing tokens */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.75rem;
+  --space-xl: 3rem;
+
+  --text: #0b0b0b;
+  --muted: #a8a8ad;
+
+  --accent: #caa0f8;
+  --accent-2: #a855f7;
+  --accent-3: #7e22ce;
+
+  --ok: #22c55e;
+  --ring: rgba(168, 85, 247, 0.35);
+
+  --shadow: 0 8px 24px rgba(16,24,40,0.06);
+  --radius: 12px;
+  --radius-xl: 18px;
+
+  --max-width: 1200px;
+}
+
+/* ------------------------------
+   RESET
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--base-size);
+  line-height: var(--scale-rhythm);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------
+   GLOBAL UTILITIES
+------------------------------ */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent-3) 0%, var(--accent-2) 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.5px;
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+.pill {
+  background: transparent;
+  color: var(--accent-3);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(168,85,247,0.12);
+  font-weight: 600;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+  color: #fff;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(120,60,180,0.09);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.cta:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(120,60,180,0.12); }
+
+.grid-2 {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+section {
+  padding: var(--space-xl) 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 3.5rem 0;
+  }
+}
+
+.card,
+.person,
+.feature,
+.session-card,
+.pack,
+.step,
+.quote,
+.faq details {
+  border-radius: 14px;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, rgba(248,245,252,0.6), var(--card));
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 28px rgba(12,18,30,0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(12,18,30,0.08); }
+
+.section-title { font-size: 2.6rem; margin-bottom: var(--space-sm); }
+.section-sub { margin-bottom: var(--space-lg); font-size: 1.05rem; color: var(--muted); max-width: 700px; }

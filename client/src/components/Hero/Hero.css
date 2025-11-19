@@ -1,0 +1,144 @@
+/* -------------------------------------------------
+   HERO SECTION (Modern, Premium, Clean)
+-------------------------------------------------- */
+
+.hero {
+  padding-top: 6.5rem;
+  padding-bottom: 4rem;
+  background: linear-gradient(180deg, rgba(250,245,255,0.6), rgba(243,233,255,0.85));
+}
+
+.hero-grid {
+  display: grid;
+  gap: 3.25rem;
+  align-items: center;
+}
+
+@media (min-width: 980px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* -------------------------
+   LEFT SIDE – TEXT CONTENT
+-------------------------- */
+
+.hero-left {
+  max-width: 640px;
+}
+
+.eyebrow {
+  font-size: 0.95rem;
+  color: var(--accent-2);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.7px;
+  background: linear-gradient(90deg, var(--accent-3), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.25rem;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+/* Buttons */
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.cta {
+  font-size: 1rem;
+  padding: 0.75rem 1.35rem;
+}
+
+.pill {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(168,85,247,0.12);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-3);
+}
+
+/* Tag row */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  max-width: 650px;
+}
+
+/* -------------------------------------------------
+   RIGHT SIDE – HERO CARDS COLUMN
+-------------------------------------------------- */
+
+.hero-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  max-width: 640px;
+}
+
+/* Larger spacing on desktop */
+@media (min-width: 1100px) {
+  .hero-cards {
+    gap: 2rem;
+  }
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(248,245,252,0.9));
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(12,18,30,0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(12,18,30,0.08); }
+
+/* Card tag */
+.tag {
+  font-size: 0.75rem;
+  background: var(--accent-2);
+  color: #fff;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+/* Card title */
+.card h4 {
+  margin-bottom: 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Card body */
+.card .subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

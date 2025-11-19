@@ -1,0 +1,41 @@
+/* Logo scroller */
+.scroller-wrap {
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.logo-track {
+  display: flex;
+  gap: 4rem;
+  animation: scroll 25s linear infinite;
+}
+
+.logo-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-track img {
+  height: 90px;
+  margin: 0 60px;
+  object-fit: contain;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Testimonials */
+.testimonials {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.quote {
+  background: linear-gradient(180deg, rgba(248,245,252,0.6), var(--card));
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(12,18,30,0.04);
+}
