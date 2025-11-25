@@ -1,35 +1,80 @@
-import './Contact.css';
+import './Contact.css'
+import { useEffect, useRef } from 'react'
 
-export default function Contact({ sendEmail }) {
+export default function Contact() {
+  const sendEmail = (e) => {
+    e.preventDefault()
+    const f = e.target
+    const name = encodeURIComponent(f.name.value)
+    const email = encodeURIComponent(f.email.value)
+    const topic = encodeURIComponent(f.topic.value || 'Inquiry')
+    const message = encodeURIComponent(f.message.value)
+
+    const body = `From: ${name} <${email}>\n\n${message}`
+    window.location.href = `mailto:hello@akprep.co?subject=${topic}&body=${body}`
+    f.reset()
+  }
+
+  const iframeRef = useRef(null)
+  const formRef = useRef(null)
+
+  // Make iframe match form height
+  useEffect(() => {
+    const resizeIframe = () => {
+      if (iframeRef.current && formRef.current) {
+        const formHeight = formRef.current.offsetHeight
+        iframeRef.current.style.height = formHeight + 'px'
+      }
+    }
+
+    resizeIframe()
+    window.addEventListener('resize', resizeIframe)
+    return () => window.removeEventListener('resize', resizeIframe)
+  }, [])
+
   return (
-    <section id="contact">
+    <section id="contact" className="contact-section">
       <div className="container">
-        <h2 className="section-title">Location and contact</h2>
-        <p className="section-sub">Based in NJ and NYC. Virtual support everywhere.</p>
+        <div className="contact-header">
+          <h2 className="section-title">Schedule & Contact</h2>
+          <p className="section-sub">Based in NJ and NYC. Virtual support everywhere.</p>
+        </div>
 
         <div className="contact-grid">
-          <div className="map">Map embed goes here</div>
+          {/* Calendly iframe — height matches form */}
+          <div className="calendly-embed">
+            <iframe
+              ref={iframeRef}
+              src="https://calendly.com/akprep/30min"
+              width="100%"
+              frameBorder="0"
+              title="Schedule a call"
+              allow="fullscreen"
+            />
+          </div>
 
-          <form onSubmit={sendEmail}>
-            <div className="grid-2">
+          {/* Contact Form — ref to measure height */}
+          <form ref={formRef} onSubmit={sendEmail} className="contact-form">
+            <div className="form-row">
               <input required name="name" placeholder="Your name" />
-              <input required type="email" name="email" placeholder="Email" />
+              <input required type="email" name="email" placeholder="Email address" />
             </div>
 
-            <input name="topic" placeholder="Subject" />
-            <textarea required name="message" rows="5" placeholder="Tell us what you need" />
+            <input name="topic" placeholder="Subject (optional)" />
 
-            <div className="form-actions">
-              <button className="primary" type="submit">Send message</button>
-              <a className="pill" href="https://calendly.com/your-calendly/intro">
-                Schedule on Calendly
-              </a>
-            </div>
+            <textarea
+              required
+              name="message"
+              rows="6"
+              placeholder="Tell us how we can help..."
+            />
 
-            <small>This form opens your email app.</small>
+            <button type="submit" className="submit-btn">
+              Send Message
+            </button>
           </form>
         </div>
       </div>
     </section>
-  );
+  )
 }

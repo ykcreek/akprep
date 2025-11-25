@@ -1,41 +1,31 @@
-/* Logo scroller */
-.scroller-wrap {
+.scroller-wrap { margin-top: 24px; }
+
+.logo-scroller {
   overflow: hidden;
-  margin: 2rem 0;
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  background: linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.55));
 }
 
 .logo-track {
   display: flex;
-  gap: 4rem;
-  animation: scroll 25s linear infinite;
-}
-
-.logo-track:hover {
-  animation-play-state: paused;
+  align-items: center;
+  gap: 56px;
+  width: 200%;
+  animation: scroll-left 24s linear infinite;
+  padding: 24px 0;
 }
 
 .logo-track img {
-  height: 90px;
-  margin: 0 60px;
+  height: 70px;
+  width: auto;
   object-fit: contain;
 }
 
-@keyframes scroll {
+.logo-scroller:hover .logo-track { animation-play-state: paused; }
+
+@keyframes scroll-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
-
-/* Testimonials */
-.testimonials {
-  margin-top: 2rem;
-  display: grid;
-  gap: 1.5rem;
-}
-
-.quote {
-  background: linear-gradient(180deg, rgba(248,245,252,0.6), var(--card));
-  padding: 1.25rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(12,18,30,0.04);
 }

@@ -1,0 +1,127 @@
+/* src/components/Navbar/Navbar.css — ORIGINAL + MODERN HOVERS */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: saturate(180%) blur(10px);
+  background: rgba(255,255,255,.7);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+}
+
+/* MODERN BRAND */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.brand:hover {
+  transform: translateY(-1px);
+}
+
+.logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover .logo-img {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+/* MODERN NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: #6e6e73;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+/* Animated underline */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 50%;
+  background: linear-gradient(90deg, #b78df5, #8e4cf8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.nav-link:hover {
+  color: #101113;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;           /* a bit wider base */
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b78df5, #8e4cf8);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow + expand */
+.pill:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 0 20px rgba(142, 76, 248, 0.5),
+    0 8px 25px rgba(142, 76, 248, 0.35);
+}
+
+/* Optional inner shine sweep */
+.pill::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.7s;
+}
+
+.pill:hover::before {
+  left: 100%;
+}
+
+/* DON'T TOUCH THIS — IT'S WORKING */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}

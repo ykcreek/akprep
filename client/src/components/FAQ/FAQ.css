@@ -1,13 +1,23 @@
-.faq details {
-  background: linear-gradient(180deg, rgba(248,245,252,0.6), var(--card));
-  padding: 0.95rem 1.15rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  margin-bottom: 1rem;
+.faq {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+details {
+  background: white;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(16,17,19,.08);
 }
 
 summary {
   cursor: pointer;
   font-weight: 700;
-  color: var(--text);
+}
+
+details p {
+  color: #6e6e73;
+  margin: 8px 0 0;
 }

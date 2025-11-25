@@ -1,11 +1,21 @@
-import Hero from "../../components/Hero/Hero";
-import HeroCards from "../../components/Hero/HeroCards";
+import Hero from '../../components/Hero/Hero'
+import About from '../../components/About/About'
+import Process from '../../components/Process/Process'
+import Services from '../../components/Services/Services'
+import Results from '../../components/Results/Results'
+import FAQ from '../../components/FAQ/FAQ'
+import Contact from '../../components/Contact/Contact'
 
 export default function Home() {
   return (
-    <header id="home" className="hero container hero-grid">
+    <>
       <Hero />
-      <HeroCards />
-    </header>
-  );
+      <About />
+      <Process />
+      <Services />
+      <Results />
+      <FAQ />
+      <Contact />
+    </>
+  )
 }

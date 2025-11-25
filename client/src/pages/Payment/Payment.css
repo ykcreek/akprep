@@ -1,0 +1,552 @@
+/* ============================================= */
+/* PAYMENT PAGE – BREATHABLE & LUXURIOUS 2025   */
+/* ============================================= */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+.payment-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 48px 16px 100px;
+  font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.payment-header h1 {
+  font-family: "EB Garamond", serif;
+  font-size: clamp(38px, 5vw, 52px);
+  font-weight: 800;
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, #7c3aed, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.payment-header p {
+  color: #64748b;
+  font-size: 17px;
+}
+
+/* Main Layout – generous gap */
+.payment-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 370px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Package Sidebar – clean & airy */
+.packages-sidebar h3 {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #0f172a;
+}
+
+.package-option {
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.package-option:hover {
+  border-color: #c084fc;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(167, 139, 250, 0.16);
+}
+.package-option.selected {
+  border-color: #c084fc;
+  background: #faf8ff;
+  box-shadow: 0 24px 50px rgba(167, 139, 250, 0.2);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 14px;
+  right: -38px;
+  background: #7c3aed;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 7px 42px;
+  transform: rotate(45deg);
+}
+
+.package-header h4 { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
+.hours { font-size: 15px; color: #475569; margin: 4px 0 12px; }
+.package-price { font-size: 32px; font-weight: 800; margin: 12px 0 8px; }
+.package-option .desc { font-size: 14px; color: #64748b; margin-top: 12px; }
+
+/* Checkout Area – lots of breathing room */
+.checkout-area {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+}
+
+/* Section titles */
+.customer-info h3,
+.order-summary h3,
+.payment-details h3 {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 28px;
+  color: #0f172a;
+}
+
+/* Name fields – shorter & perfectly spaced */
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+/* All inputs – generous padding & spacing */
+.customer-info input,
+.card-element-container {
+  display: block;
+  width: 100%;
+  padding: 16px 18px;
+  font-size: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+  transition: all 0.25s ease;
+}
+.customer-info input:focus {
+  outline: none;
+  border-color: #c084fc;
+  box-shadow: 0 0 0 5px rgba(192, 132, 252, 0.18);
+}
+
+/* Extra spacing between form sections */
+.customer-info { margin-bottom: 40px; }
+.order-summary { margin-bottom: 40px; }
+.payment-details { margin-bottom: 32px; }
+
+/* Order Summary – airy */
+.order-summary {
+  background: #ffffff;
+  border: 2px solid #f1f5f9;
+  border-radius: 20px;
+  padding: 32px 28px;
+  margin-bottom: 44px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.order-summary h3 {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 28px;
+  color: #0f172a;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.order-summary h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #c084fc, #7c3aed);
+  border-radius: 2px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  font-size: 16.5px;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.summary-item:last-of-type {
+  border-bottom: none;
+}
+
+/* Bonus & Rate tags inside summary – now pill-shaped and subtle */
+.bonus-tag, .rate-tag {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-left: 10px;
+}
+.bonus-tag { background: #ecfdf5; color: #166534; }
+.rate-tag   { background: #f3e8ff; color: #7c3aed; }
+
+/* Total row – the star of the show */
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0 0;
+  margin: 24px 0 0;
+  border-top: 2px solid #e2e8f0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.total span:first-child {
+  font-size: 17px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Optional: add a subtle highlight to the selected package name */
+.summary-item strong {
+  color: #7c3aed;
+  font-weight: 700;
+}
+
+/* Card element */
+.card-element-container {
+  min-height: 56px;
+  margin-bottom: 24px;
+}
+
+/* Pay button – big, confident, spacious */
+.pay-button {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 14px 40px rgba(124, 58, 237, 0.4);
+  transition: all 0.35s ease;
+  margin-top: 12px;
+}
+.pay-button:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 50px rgba(124, 58, 237, 0.5);
+}
+
+/* Responsive – stays beautiful on mobile */
+@media (max-width: 900px) {
+  .payment-layout { grid-template-columns: 1fr; gap: 48px; }
+  .packages-sidebar { order: 2; }
+  .checkout-area { order: 1; padding: 36px 28px; }
+}
+
+@media (max-width: 480px) {
+  .payment-page { padding: 40px 14px 80px; }
+  .checkout-area { padding: 32px 24px; }
+  .name-row { grid-template-columns: 1fr; gap: 20px; }
+  .pay-button { padding: 18px; font-size: 17px; }
+}
+
+.pay-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading State */
+.pay-button.processing {
+  background: linear-gradient(135deg, #6b21a8, #8e4cf8) !important;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid transparent;
+  border-top: 2.5px solid white;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success State */
+.pay-button.succeeded {
+  background: linear-gradient(135deg, #16a34a, #22c55e) !important;
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(34, 197, 94, 0.4);
+}
+
+.success-text {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.check-icon-large {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  position: relative;
+  animation: bounceIn 0.6s ease-out;
+}
+
+.check-icon-large::before,
+.check-icon-large::after {
+  content: '';
+  position: absolute;
+  background: #16a34a;
+  border-radius: 2px;
+}
+
+.check-icon-large::before {
+  width: 8px;
+  height: 18px;
+  top: 8px;
+  left: 12px;
+  transform: rotate(45deg);
+  animation: checkLeft 0.4s ease-out 0.4s both;
+}
+
+.check-icon-large::after {
+  width: 4px;
+  height: 28px;
+  top: 4px;
+  left: 18px;
+  transform: rotate(-45deg);
+  animation: checkRight 0.4s ease-out 0.5s both;
+}
+
+/* Floating confetti dots */
+.pay-button.succeeded::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 20% 80%, #fbbf24 4px, transparent 5px),
+    radial-gradient(circle at 80% 20%, #f87171 4px, transparent 5px),
+    radial-gradient(circle at 40% 40%, #a78bfa 4px, transparent 5px),
+    radial-gradient(circle at 70% 70%, #34d399 4px, transparent 5px);
+  animation: confetti 2.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes checkLeft {
+  0% { height: 0; top: 18px; }
+  100% { height: 18px; top: 8px; }
+}
+
+@keyframes checkRight {
+  0% { height: 0; top: 18px; }
+  100% { height: 28px; top: 4px; }
+}
+
+@keyframes confetti {
+  0% { opacity: 0; transform: translateY(0) rotate(0); }
+  100% { opacity: 1; transform: translateY(-120px) rotate(720deg); }
+}
+
+.success-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.success-modal {
+  position: relative;
+  background: white;
+  border-radius: 28px;
+  padding: 52px 44px;
+  max-width: 500px;
+  width: 92%;
+  text-align: center;
+  box-shadow: 0 32px 90px rgba(124, 58, 237, 0.25);
+  overflow: hidden;
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  animation: modalPop 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.3);
+}
+
+.success-modal-content h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 24px 0 12px;
+  background: linear-gradient(135deg, #8b5cf6, #c084fc, #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.success-modal-content p {
+  color: #64748b;
+  font-size: 17px;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.receipt-note {
+  margin-top: 20px;
+  padding: 18px;
+  background: linear-gradient(135deg, #faf8ff, #f3e8ff);
+  border: 1.5px solid #e0d4ff;
+  border-radius: 16px;
+  color: #6b21a8 !important;
+  font-weight: 600;
+}
+.success-icon-wrapper {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 24px;
+  position: relative;
+}
+
+.success-icon {
+  filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.3));
+}
+
+.circle-animation {
+  animation: drawCircle 0.8s ease-out forwards;
+}
+
+.checkmark-animation {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: drawCheck 0.6s ease-out 0.6s forwards;
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.modal-close-btn {
+  margin-top: 32px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 35px rgba(124, 58, 237, 0.35);
+  transition: all 0.35s ease;
+}
+
+.modal-close-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(124, 58, 237, 0.45);
+}
+
+/* PURPLE CONFETTI EXPLOSION */
+.confetti-container {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  opacity: 0;
+  animation: confettiFall 3.5s ease-out forwards;
+}
+
+/* Beautiful purple/pink/cyan confetti palette */
+.confetti:nth-child(1n) { background: #8b5cf6; }
+.confetti:nth-child(2n) { background: #c084fc; }
+.confetti:nth-child(3n) { background: #e879f9; }
+.confetti:nth-child(4n) { background: #a78bfa; }
+.confetti:nth-child(5n) { background: #ddd6fe; }
+.confetti:nth-child(6n) { background: #fce7f3; width: 16px; height: 8px; border-radius: 8px; }
+.confetti:nth-child(7n) { background: #a5b4fc; }
+
+/* Random positioning via inline styles in JSX */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-120vh) rotate(0deg) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(1080deg) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalPop {
+  0% { transform: scale(0.6) translateY(60px); opacity: 0; }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+@keyframes circleGrow {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes stemGrow {
+  0% { height: 0; }
+  100% { height: 46px; }
+}
+@keyframes kickGrow {
+  0% { height: 0; }
+  100% { height: 26px; }
+}
