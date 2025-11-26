@@ -1,0 +1,6 @@
+/* Make sure the admin page takes full height */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: #f8f8fb;
+}

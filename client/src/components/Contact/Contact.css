@@ -26,10 +26,10 @@
 
 /* Grid layout */
 .contact-grid {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: start;
+  justify-content: center;
 }
 
 /* Calendly iframe */
@@ -68,6 +68,7 @@
 .contact-form input,
 .contact-form textarea {
   padding: 14px 16px;
+  padding-right: 100px;
   border: 1.5px solid rgba(0,0,0,.1);
   border-radius: 12px;
   font-size: 15px;

@@ -1,0 +1,283 @@
+/* ============================================
+   GLOBAL (safe)
+============================================ */
+.intake-page * {
+  box-sizing: border-box;
+}
+
+.intake-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fafafa 0%, #f3f0ff 100%);
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.intake-page .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   HEADER
+============================================ */
+.intake-page .intake-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.intake-page .intake-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-family: "EB Garamond", serif;
+
+  background: linear-gradient(135deg, #6d28d9, #8e4cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.intake-page .intake-header p {
+  font-size: 1.2rem;
+  color: #6e6e73;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ============================================
+   FORM CONTAINER
+============================================ */
+.intake-page .intake-form {
+  background: white;
+  border-radius: 20px;
+  padding: 48px 52px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eee8ff;
+}
+
+.intake-page .form-section {
+  margin-bottom: 36px;
+}
+
+.intake-page .form-section h3 {
+  font-family: "EB Garamond", serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #1e1d27;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.intake-page .form-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #6d28d9, #8e4cf8);
+  border-radius: 2px;
+}
+
+/* ============================================
+   GRID LAYOUTS
+============================================ */
+.intake-page .grid-2,
+.intake-page .grid-3 {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.intake-page .grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.intake-page .grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Responsive grid collapse */
+@media (max-width: 768px) {
+  .intake-page .grid-2,
+  .intake-page .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   INPUTS / TEXTAREAS
+============================================ */
+.intake-page .personal-info-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 16px;
+}
+
+.intake-page input,
+.intake-page textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e7ddff;
+  border-radius: 12px;
+  background-color: #fbfaff;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  color: #1e1d27;
+}
+
+.intake-page input:focus,
+.intake-page textarea:focus {
+  outline: none;
+  border-color: #8e4cf8;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(142, 76, 248, 0.15);
+}
+
+/* Remove number spinners */
+.intake-page input[type="number"]::-webkit-inner-spin-button,
+.intake-page input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.intake-page input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ============================================
+   CHECKBOXES
+============================================ */
+.intake-page .checkbox-section {
+  margin: 32px 0 48px;
+}
+
+.intake-page .checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.95rem;
+  color: #6e6e73;
+}
+
+.intake-page .checkbox-label input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.intake-page .checkmark {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #d5caff;
+  border-radius: 8px;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s ease;
+  background-color: white;
+}
+
+.intake-page .checkbox-label input:checked ~ .checkmark {
+  background-color: #8e4cf8;
+  border-color: #8e4cf8;
+}
+
+.intake-page .checkbox-label input:checked ~ .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+.intake-page .checkbox-label:hover .checkmark {
+  border-color: #b9a6ff;
+}
+
+/* Preference section */
+.intake-page .preference-options {
+  margin-left: 40px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.intake-page .small-check .checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+
+.intake-page .small-check .label-text {
+  font-size: 0.9rem;
+}
+
+.intake-page .preference-main {
+  margin-top: 20px;
+}
+
+/* ============================================
+   SUBMIT BUTTON
+============================================ */
+.intake-page .continue-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #6d28d9 0%, #8e4cf8 100%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(109, 40, 217, 0.25);
+}
+
+.intake-page .continue-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(109, 40, 217, 0.35);
+}
+
+.intake-page .continue-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   MOBILE
+============================================ */
+@media (max-width: 480px) {
+  .intake-page {
+    padding: 20px 15px;
+  }
+
+  .intake-page .intake-form {
+    padding: 32px 20px;
+  }
+
+  .intake-page .intake-header h1 {
+    font-size: 2rem;
+  }
+}
+
+.academic-grid {
+  display: grid;
+  grid-template-columns: 120px 120px 120px 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Inputs adjust nicely on mobile */
+@media (max-width: 768px) {
+  .academic-grid {
+    grid-template-columns: 1fr;
+  }
+}

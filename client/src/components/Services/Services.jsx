@@ -58,7 +58,7 @@ export default function Services() {
                   </h4>
                   <p className="pack-desc">{pack.desc}</p>
                 </div>
-                <a href="/payment" className="pack-btn">Book Service</a>
+                <a href="/student-form" className="pack-btn">Book a Call</a>
               </div>
             ))}
           </div>

@@ -1,0 +1,106 @@
+/* src/pages/ClientPortal.css */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-card {
+  background: white;
+  border-radius: 2rem;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 25px 80px rgba(124, 58, 237, 0.4);
+  overflow: hidden;
+}
+
+.login-header {
+  background: linear-gradient(135deg, #7c3aed, #c084fc);
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+}
+
+.login-header h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+}
+
+.login-header p {
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.login-form {
+  padding: 2.5rem;
+}
+
+.login-input {
+  width: 100%;
+  padding: 1.1rem 1.4rem;
+  font-size: 1.1rem;
+  border: 2px solid #e0d4ff;
+  border-radius: 1rem;
+  margin-bottom: 1.2rem;
+  transition: all 0.3s;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 1.1rem;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+}
+
+.login-footer {
+  text-align: center;
+  padding: 0 2rem 2rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Portal styles (keep your existing ones) */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.welcome-card, .package-badge {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid #e0d4ff;
+}
+
+.package-badge {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #f3e8ff, #e0d4ff);
+  color: #6b21a8;
+  font-weight: 600;
+  text-align: center;
+}

@@ -1,0 +1,88 @@
+/* Overall page */
+.students-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Header */
+.students-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 15px;
+}
+
+.students-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.students-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Search Input */
+.students-search {
+  padding: 10px 14px;
+  width: 260px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.students-search:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Layout */
+.students-body {
+  display: grid;
+  grid-template-columns: 350px auto;
+  gap: 25px;
+  min-height: 70vh;
+}
+
+/* Left List */
+.students-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 75vh;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Right Detail Panel */
+.students-detail {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  padding: 20px;
+  min-height: 400px;
+}
+
+/* Empty State */
+.students-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #6b7280;
+}
+
+.students-empty h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.students-empty p {
+  font-size: 14px;
+}
