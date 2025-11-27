@@ -27,7 +27,7 @@ export default function StudentForm() {
   setStatus("sending") // optional status tracking
 
   try {
-    const response = await fetch("http://localhost:4242/interest-form/submit-form", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/interest-form/submit-form`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),

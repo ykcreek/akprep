@@ -16,7 +16,7 @@ export default function Students() {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await fetch("http://localhost:4242/admin/students", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/students`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
