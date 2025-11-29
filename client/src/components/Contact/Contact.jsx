@@ -20,7 +20,7 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch('http://localhost:4242/email/send-email', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/email/send-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

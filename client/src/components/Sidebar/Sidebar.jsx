@@ -1,6 +1,7 @@
 // src/components/Sidebar/Sidebar.jsx
 import { Users, BarChart3, Settings, LogOut } from "lucide-react";
 import "./Sidebar.css";
+import { useNavigate } from "react-router-dom";
 
 const menu = [
   { id: "students", label: "Students", icon: Users },
@@ -9,6 +10,18 @@ const menu = [
 ];
 
 export default function Sidebar({ selected, setSelected }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Remove all login data
+    localStorage.removeItem("token");
+    localStorage.removeItem("uid");
+    localStorage.removeItem("role");
+
+    // Redirect to login
+    navigate("/login");
+  };
+
   return (
     <aside className="admin-sidebar">
       <div className="sidebar-inner">
@@ -35,7 +48,7 @@ export default function Sidebar({ selected, setSelected }) {
         </nav>
 
         <div className="sidebar-footer">
-          <button className="logout-btn">
+          <button className="logout-btn" onClick={handleLogout}>
             <LogOut size={18} />
             <span>Logout</span>
           </button>

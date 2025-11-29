@@ -1,79 +1,108 @@
-// src/pages/ClientPortal.jsx
-import React, { useState } from 'react'
-import ClientLayout from '../../components/Client/ClientLayout/ClientLayout'
-import FileUpload from '../../components/Client/FileUpload/FileUpload'
-import FileList from '../../components/Client/FileList/FileList'
-import MessageThread from '../../components/Client/MessageThread/MessageThread'
-import { clients } from '../../data/mockClients'
-import './Client.css'   // ← new CSS file
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Client.css";
 
-export default function ClientPortal() {
-  const [email, setEmail] = useState('')
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [client, setClient] = useState(null)
+import FileUploader from "../../components/FileUploader/FileUploader";
+import MessageBox from "../../components/MessageBox/MessageBox";
+import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
 
-  const handleLogin = (e) => {
-    e.preventDefault()
-    const foundClient = clients[email.toLowerCase().trim()]
-    if (foundClient) {
-      setClient(foundClient)
-      setIsLoggedIn(true)
-    } else {
-      alert('No account found with that email. Check your payment confirmation email!')
-    }
+export default function Client() {
+  const [student, setStudent] = useState(null);
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
+  const uid = localStorage.getItem("uid");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("uid");
+    localStorage.removeItem("role");
+
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    const fetchStudentInfo = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/client/info`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ uid }),
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Failed to load profile.");
+
+        setStudent(data.student);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchStudentInfo();
+  }, [uid, token]);
+
+  if (error) {
+    return <div className="client-error">{error}</div>;
   }
 
-  // Show login if not logged in
-  if (!isLoggedIn) {
-    return (
-      <div className="login-container">
-        <div className="login-card">
-          <div className="login-header">
-            <h1>Client Portal</h1>
-            <p>Enter your email to access your files & messages</p>
-          </div>
-
-          <form onSubmit={handleLogin} className="login-form">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="login-input"
-            />
-            <button type="submit" className="login-btn">
-              Continue →
-            </button>
-          </form>
-
-          <div className="login-footer">
-            <small>
-              Only paid clients can access this portal.<br />
-              Purchased recently? Check your confirmation email.
-            </small>
-          </div>
-        </div>
-      </div>
-    )
+  if (!student) {
+    return <div className="client-loading">Loading your dashboard...</div>;
   }
 
-  // Logged in → show full portal
   return (
-    <ClientLayout clientName={client.name}>
-      <div className="portal-grid">
-        <div className="welcome-card">
-          <h2>Welcome back, {client.name.split(' ')[0]}!</h2>
-          <div className="package-badge">
-            {client.package} • Paid ${client.amount}
-          </div>
-        </div>
+    <div className="client-dashboard">
 
-        <FileUpload />
-        <FileList title="Your Uploaded Files" files={client.theirFiles} />
-        <FileList title="Files From Coach" files={client.yourFiles} downloadable />
-        <MessageThread messages={client.messages} clientName={client.name.split(' ')[0]} />
+      {/* ---- TOP BAR WITH LOGOUT ---- */}
+      <div className="client-topbar">
+        <button
+          className="client-logout"
+          onClick={() => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("uid");
+            localStorage.removeItem("role");
+            window.location.href = "/login"; // redirect
+          }}
+        >
+          Logout
+        </button>
       </div>
-    </ClientLayout>
-  )
+
+      {/* ---- HEADER (CENTERED) ---- */}
+      <div className="client-header">
+        <h2>Welcome, {student.firstName}</h2>
+        <p>Your personalized college consulting dashboard</p>
+
+        {/* PLAN DISPLAY */}
+        <div className={`client-plan-badge plan-${student.plan || "none"}`}>
+          {student.plan ? student.plan.toUpperCase() : "No Plan Selected"}
+        </div>
+      </div>
+
+      {/* ---- Personal Info ---- */}
+      <PersonalInfo 
+        student={student}
+        documentId={student.id}
+        onUpdate={setStudent}
+      />
+
+      {/* ---- FILE UPLOADER ---- */}
+      <section className="client-section">
+        <h3>Your Uploaded Files</h3>
+        <FileUploader studentId={student.id} />
+      </section>
+
+      {/* ---- MESSAGES ---- */}
+      <section className="client-section">
+        <h3>Messages with Vita Prep Team</h3>
+        <MessageBox studentId={student.id} />
+      </section>
+
+    </div>
+  );
 }

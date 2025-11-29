@@ -2,10 +2,27 @@
 import "./StudentCard.css";
 
 export default function StudentCard({ student, onSelect, isSelected }) {
-  const { firstName, lastName, email, gpa, sat, act, colleges, hasSpoken } = student;
+  const {
+    firstName,
+    lastName,
+    email,
+    gpa,
+    sat,
+    act,
+    colleges,
+    plan // <-- new field
+  } = student;
 
-  // Show top college or fallback
+  // Top college preview
   const topCollege = colleges?.split("\n")[0] || "No colleges listed";
+
+  // Plan badge text
+  const badge = plan
+    ? plan                    // Example: "Starter", "Growth", "Premium"
+    : "Free Tier";          // No plan chosen → intro stage
+
+  // Badge class based on plan
+  const badgeClass = plan ? "plan-badge existing" : "plan-badge new";
 
   return (
     <div
@@ -15,16 +32,31 @@ export default function StudentCard({ student, onSelect, isSelected }) {
       <div className="card-header">
         <h3 className="student-name">
           {firstName} {lastName}
-          {hasSpoken && <span className="spoken-badge">Spoken</span>}
+
+          {/* PLAN BADGE */}
+          <span className={badgeClass}>{badge}</span>
         </h3>
+
         <p className="student-email">{email}</p>
       </div>
 
       <div className="card-body">
         <div className="stats-grid">
-          {gpa && <div className="stat"><span>GPA</span> <strong>{gpa}</strong></div>}
-          {sat && <div className="stat"><span>SAT</span> <strong>{sat}</strong></div>}
-          {act && <div className="stat"><span>ACT</span> <strong>{act}</strong></div>}
+          {gpa && (
+            <div className="stat">
+              <span>GPA</span> <strong>{gpa}</strong>
+            </div>
+          )}
+          {sat && (
+            <div className="stat">
+              <span>SAT</span> <strong>{sat}</strong>
+            </div>
+          )}
+          {act && (
+            <div className="stat">
+              <span>ACT</span> <strong>{act}</strong>
+            </div>
+          )}
         </div>
 
         <div className="college-preview">

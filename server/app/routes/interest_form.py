@@ -1,5 +1,5 @@
-from flask import Blueprint, request, jsonify, current_app
-from app.utils.email_utils import send_intake_email
+from flask import Blueprint, request, jsonify
+from app.utils.email_utils import send_intake_email, send_student_signup_email
 from app.models.student import save_student_to_db
 
 interest_form = Blueprint("interest-form", __name__, url_prefix="/interest-form")
@@ -12,8 +12,16 @@ def submit_interest_form():
         student_id = save_student_to_db(form)
         print(f"Saved student with ID: {student_id}")
 
-        #send_intake_email(form, current_app)
+        send_intake_email(form)
+        first = form.get("firstName")
+        last = form.get("lastName")
+        full_name = f"{first} {last}"
 
+        send_student_signup_email(
+            form.get("email"),
+            full_name,
+            student_id
+        )
         return jsonify({
             "success": True,
             "message": "Intake submitted",

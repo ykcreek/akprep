@@ -17,15 +17,15 @@ export default function Services() {
         <div className="feature-grid">
           <div className="feature">
             <strong>Essay Essentials</strong>
-            <span>Personal statement + 5 supplements</span>
+            <span>Strong structure. Clear voice. Better essays.</span>
           </div>
           <div className="feature">
-            <strong>Complete Application</strong>
-            <span>End-to-end support for 8 schools</span>
+            <strong>Application Review</strong>
+            <span>A sharper, stronger application — reviewed, refined, and ready to submit.</span>
           </div>
           <div className="feature">
-            <strong>Premier</strong>
-            <span>Everything in Complete + scholarships & interviews</span>
+            <strong>Guidance & Strategy</strong>
+            <span>Guidance that sharpens your LORs, clubs, and transfer story.</span>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ export default function Services() {
             {[
               { title: "Starter Pack – 5 hours", desc: "5 hours of online/offline time, used however you need" },
               { title: "Growth Pack – 10 hours", desc: "10 hours total, including 1 bonus hour" },
-              { title: "Premium Pack – 20 hours", desc: "20 hours total, including 4 bonus hours", rate: "(67/hour)" }
+              { title: "Premium Pack – 20 hours", desc: "20 hours total, including 4 bonus hours", rate: "($67/hour)" }
             ].map((pack, i) => (
               <div key={i} className="pack">
                 <div>

@@ -1,106 +1,155 @@
-/* src/pages/ClientPortal.css */
-.login-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+.client-dashboard {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
-.login-card {
-  background: white;
-  border-radius: 2rem;
-  width: 100%;
-  max-width: 460px;
-  box-shadow: 0 25px 80px rgba(124, 58, 237, 0.4);
-  overflow: hidden;
-}
-
-.login-header {
-  background: linear-gradient(135deg, #7c3aed, #c084fc);
-  color: white;
+.client-header {
   text-align: center;
-  padding: 3rem 2rem 2rem;
+  margin-bottom: 40px;
 }
 
-.login-header h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin: 0 0 0.5rem;
+.client-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #6128c6; /* purple */
 }
 
-.login-header p {
-  opacity: 0.9;
-  font-size: 1.1rem;
+.client-header p {
+  margin-top: 6px;
+  color: #6b7280;
+  font-size: 16px;
 }
 
-.login-form {
-  padding: 2.5rem;
+/* Sections */
+.client-section {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
-.login-input {
+.client-section h3 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #6128c6;
+  font-weight: 600;
+}
+
+/* Personal info grid */
+.client-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+  font-size: 15px;
+}
+
+.client-loading,
+.client-error {
+  text-align: center;
+  margin-top: 80px;
+  color: #6128c6;
+  font-size: 20px;
+}
+
+/* Forms, inputs, buttons reuse style */
+.client-section input,
+.client-section textarea {
   width: 100%;
-  padding: 1.1rem 1.4rem;
-  font-size: 1.1rem;
-  border: 2px solid #e0d4ff;
-  border-radius: 1rem;
-  margin-bottom: 1.2rem;
-  transition: all 0.3s;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  margin-top: 8px;
 }
 
-.login-input:focus {
+.client-section input:focus,
+.client-section textarea:focus {
   outline: none;
   border-color: #8b5cf6;
-  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
 }
 
-.login-btn {
-  width: 100%;
-  padding: 1.1rem;
-  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+.client-section button {
+  margin-top: 10px;
+  padding: 11px 20px;
+  background: #6128c6;
   color: white;
   border: none;
-  border-radius: 1rem;
-  font-size: 1.2rem;
-  font-weight: 700;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
 }
 
-.login-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+.client-section button:hover {
+  background: #5120a8;
 }
 
-.login-footer {
+.client-topbar {
+  display: flex;
+  justify-content: flex-end;   /* logout moves right */
+  margin-bottom: 20px;
+}
+
+/* Header stays fully centered */
+.client-header {
   text-align: center;
-  padding: 0 2rem 2rem;
-  color: #94a3b8;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  margin-bottom: 40px;
 }
 
-/* Portal styles (keep your existing ones) */
-.portal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+.client-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #6128c6;
+  margin: 0;
 }
 
-.welcome-card, .package-badge {
-  background: white;
-  padding: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  border: 1px solid #e0d4ff;
+.client-subtitle {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 16px;
+  color: #6b7280;
 }
 
-.package-badge {
-  margin-top: 1rem;
-  background: linear-gradient(135deg, #f3e8ff, #e0d4ff);
-  color: #6b21a8;
+/* ==== LOGOUT BUTTON ==== */
+.client-logout {
+  padding: 10px 18px;
+  background: #e11d48; /* red/pink danger color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
   font-weight: 600;
-  text-align: center;
+  transition: 0.2s ease;
+}
+
+.client-logout:hover {
+  background: #be123c;
+  transform: translateY(-1px);
+}
+
+.client-plan-badge {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Plan-specific colors */
+.plan-starter {
+  background: #16a34a; /* green */
+}
+
+.plan-growth {
+  background: #2563eb; /* blue */
+}
+
+.plan-premium {
+  background: #8b5cf6; /* purple */
+}
+
+.plan-none {
+  background: #6b7280; /* gray */
 }

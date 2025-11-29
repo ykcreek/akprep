@@ -8,7 +8,6 @@ export default function Login({ onLogin }) {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // ---- 1) Firebase login via REST ----
   const firebaseLogin = async (email, password) => {
     const res = await fetch(
       `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${import.meta.env.VITE_FIREBASE_API_KEY}`,
@@ -27,10 +26,9 @@ export default function Login({ onLogin }) {
 
     if (!res.ok) throw new Error(data.error?.message || "Login failed!");
 
-    return data; // contains idToken + localId + email
+    return data; 
   };
 
-  // ---- 2) Fetch role from Firestore REST ----
   const fetchUserRole = async (uid) => {
     const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID;
 
@@ -68,7 +66,12 @@ export default function Login({ onLogin }) {
 
       // Call parent handler (navigate to admin, etc.)
       onLogin();
-      navigate("/admin");
+      if(role == "admin"){
+        navigate("/admin");
+      }
+      else if (role == "student"){
+        navigate("/client");
+      }
     } catch (err) {
       setError(err.message);
     }
@@ -77,7 +80,7 @@ export default function Login({ onLogin }) {
   return (
     <div className="login-page">
       <form className="login-box" onSubmit={handleSubmit}>
-        <h2>Admin Login</h2>
+        <h2>Login</h2>
 
         {error && <p className="login-error">{error}</p>}
 

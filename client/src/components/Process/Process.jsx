@@ -32,6 +32,10 @@ export default function Process() {
             </div>
           ))}
         </div>
+        <p className="process-disclaimer">
+          Disclaimer: Vita provides advising and coaching only; we do not guarantee admission to any institution.
+        </p>
+
       </div>
     </section>
   )

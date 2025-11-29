@@ -1,0 +1,16 @@
+.messagebox-comingsoon {
+  padding: 20px;
+  background: #f3f0ff;
+  border-radius: 12px;
+  color: #6128c6;
+  text-align: center;
+  border: 1px dashed #c4b5fd;
+  font-size: 15px;
+}
+
+.messagebox-comingsoon h4 {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  font-size: 17px;
+  color: #4c1d95;
+}

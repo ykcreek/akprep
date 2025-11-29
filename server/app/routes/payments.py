@@ -6,20 +6,20 @@ payments_bp = Blueprint("payments", __name__, url_prefix="/payments")
 @payments_bp.route("/create-checkout-session", methods=["POST"])
 def create_checkout_session():
     try:
-        stripe.api_key = current_app.config["STRIPE_SECRET_KEY"]
+        data = request.form
+        price_id = data.get("priceId")
 
-        checkout_session = stripe.checkout.Session.create(
-            line_items=[
-                {
-                    "price": "price_1SXWWwGhATuEVVspK0A1xjut",
-                    "quantity": 1,
-                }
-            ],
+        session = stripe.checkout.Session.create(
+            payment_method_types=["card"],
             mode="payment",
-            success_url=current_app.config["YOUR_DOMAIN"] + "?success=true",
+            line_items=[{"price": price_id, "quantity": 1}],
+            success_url=f"{current_app.config["YOUR_DOMAIN"]}?success=true",
+            cancel_url=f"{current_app.config["YOUR_DOMAIN"]}?canceled=true",
         )
 
-        return redirect(checkout_session.url, code=303)
+        return redirect(session.url, code=303)
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 400
+        print("❌ Checkout session error:", e)
+        return jsonify({"error": str(e)}), 500
+

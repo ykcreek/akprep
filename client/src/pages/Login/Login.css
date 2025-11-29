@@ -3,18 +3,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f9fafb;
+  background: #faf7ff; /* soft lavender background */
 }
 
 .login-box {
-  background: white;
+  background: #ffffff;
   padding: 40px 32px;
-  border-radius: 12px;
+  border-radius: 14px;
   width: 380px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(75, 0, 130, 0.08); /* light purple shadow */
   display: flex;
   flex-direction: column;
   gap: 18px;
+  border: 1px solid #ece3ff; /* subtle purple border */
 }
 
 .login-box h2 {
@@ -22,40 +23,45 @@
   margin-bottom: 5px;
   font-size: 26px;
   font-weight: 700;
+  color: #4b0082; /* indigo purple */
 }
 
 .login-box input {
   padding: 12px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #d7c7ff; /* soft purple border */
   border-radius: 8px;
   font-size: 15px;
+  background: #fcfaff; /* very light purple tint */
 }
 
 .login-box input:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: #7c3aed; /* brighter purple */
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
 }
 
 .login-box button {
   margin-top: 10px;
   padding: 12px;
   border: none;
-  background: #2563eb;
+  background: #7c3aed; /* main purple */
   color: white;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
 .login-box button:hover {
-  background: #1e4fcc;
+  background: #5b21b6; /* darker purple */
 }
 
 .login-error {
-  background: #fee2e2;
-  color: #b91c1c;
+  background: #ffe6f0;
+  color: #b51763;
   padding: 10px 12px;
   border-radius: 6px;
   font-size: 14px;
   text-align: center;
+  border: 1px solid #ffb8d6;
 }

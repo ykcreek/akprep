@@ -216,3 +216,80 @@
   background: rgba(142, 76, 248, 0.02);
   border-radius: 16px;
 }
+
+/* ========= PLAN TAG ========= */
+.plan-tag {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 10px;
+  color: white;
+}
+
+/* Colors for each plan */
+.plan-lead {
+  background: #6b7280; /* gray */
+}
+
+.plan-starter {
+  background: #3b82f6; /* blue */
+}
+
+.plan-growth {
+  background: #10b981; /* green */
+}
+
+.plan-premium {
+  background: #8b5cf6; /* purple */
+}
+
+/* ========= EDIT PLAN BUTTON ========= */
+.edit-plan-btn {
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  background: #6128c6;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.edit-plan-btn:hover {
+  background: #4e1fa3;
+}
+
+/* ========= PLAN DROPDOWN BOX ========= */
+.plan-edit-box {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.plan-edit-box select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.save-plan-btn {
+  padding: 6px 12px;
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-plan-btn {
+  padding: 6px 12px;
+  background: #e11d48;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -1,0 +1,108 @@
+.personal-info-section {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.personal-info-section h3 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #6128c6;
+  font-weight: 600;
+}
+
+/*** View Mode Grid ***/
+.pi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+  font-size: 15px;
+}
+
+.pi-full {
+  grid-column: span 2;
+}
+
+/*** Edit Mode Form ***/
+.pi-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+}
+
+.pi-form-grid label {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.pi-form-grid input,
+.pi-form-grid textarea {
+  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 15px;
+}
+
+.pi-form-grid textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.pi-form-grid input:focus,
+.pi-form-grid textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+}
+
+/*** Buttons ***/
+.pi-edit-button,
+.pi-buttons button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #6128c6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.pi-edit-button:hover,
+.pi-buttons button:hover {
+  background: #5120a8;
+}
+
+.pi-buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.pi-cancel {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.pi-cancel:hover {
+  background: #d1d5db;
+}
+
+/* Error text */
+.pi-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.pi-locked {
+  background: #f0f0f5 !important;
+  color: #6b7280;
+  cursor: not-allowed;
+  border: 1px solid #d1d5db;
+}

@@ -10,9 +10,9 @@ export default function Footer() {
           <span>© {year} Vita Prep</span>
         </div>
         <div className="footer-links">
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-          <a href="#services">Pricing</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#contact">Contact</a>
+          <a href="/#services">Pricing</a>
         </div>
       </div>
     </footer>

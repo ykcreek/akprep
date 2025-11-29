@@ -43,10 +43,11 @@ def require_auth(f):
             return jsonify({"error": "Missing token"}), 401
 
         user_data = verify_firebase_token(token)
+
         if not user_data:
             return jsonify({"error": "Invalid or expired token"}), 401
 
-        # Attach user to request context
+        # Attach user object
         request.user = user_data
 
         return f(*args, **kwargs)

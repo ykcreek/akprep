@@ -1,160 +1,113 @@
-/* src/components/StudentCard/StudentCard.css */
-/* In your StudentCard.css — just add/replace */
 .student-card {
+  position: relative;
   background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 16px;
+  padding: 20px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+  border: 1.5px solid #ececec;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
 }
 
 .student-card:hover {
-  border-color: #bbb;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(97, 40, 198, 0.15);
+  border-color: #c3a6ff;
 }
 
 .student-card.selected {
-  border-color: #333;
-  background: #fcfcfc;
-  box-shadow: 0 0 0 1px #333, 0 4px 16px rgba(0,0,0,0.1);
+  border-color: #6128c6;
+  box-shadow: 0 0 20px rgba(97, 40, 198, 0.3);
 }
 
-.student-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, rgba(142, 76, 248, 0.05), transparent 50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.student-card:hover::before {
-  opacity: 1;
-}
-
-.student-card.selected::before {
-  opacity: 1;
-  background: linear-gradient(135deg, rgba(142, 76, 248, 0.12), transparent 60%);
-}
-
-.card-glow {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #8e4cf8, transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.student-card:hover .card-glow,
-.student-card.selected .card-glow {
-  opacity: 1;
-}
-
-/* Header */
+/* HEADER */
 .card-header {
-  margin-bottom: 1rem;
+  margin-bottom: 12px;
 }
 
 .student-name {
-  margin: 0 0 0.5rem;
-  font-size: 1.35rem;
+  font-size: 20px;
   font-weight: 700;
-  color: #1e1b4b;
+  color: #1f1f1f;
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.spoken-badge {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 999px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  gap: 8px;
 }
 
 .student-email {
-  margin: 0;
-  color: #6d28d9;
-  font-size: 0.95rem;
-  font-weight: 500;
+  color: #6b7280;
+  font-size: 14px;
 }
 
-/* Stats */
+/* PLAN BADGE */
+.plan-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Existing plan (Starter, Growth, Premium, etc.) */
+.plan-badge.existing {
+  background: #e9d5ff;
+  color: #5b21b6;
+}
+
+/* New student = no plan yet */
+.plan-badge.new {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* BODY */
 .card-body {
-  space-y: 1rem;
+  margin-top: 10px;
 }
 
+/* Stats grid */
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 1rem;
-}
-
-.stat {
-  text-align: center;
-  padding: 10px 8px;
-  background: rgba(142, 76, 248, 0.08);
-  border-radius: 12px;
-  font-size: 0.9rem;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .stat span {
   display: block;
-  color: #8e4cf8;
-  font-weight: 600;
-  font-size: 0.8rem;
-  margin-bottom: 4px;
+  font-size: 12px;
+  color: #6b7280;
 }
 
 .stat strong {
-  color: #1e1b4b;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 15px;
 }
 
-/* College */
-.college-preview {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px dashed rgba(142, 76, 248, 0.2);
+/* Dream school */
+.college-preview .label {
+  font-size: 12px;
+  color: #6b7280;
 }
 
-.label {
-  font-size: 0.8rem;
-  color: #8e4cf8;
+.college-preview .college-name {
+  font-size: 15px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  margin-top: 2px;
+  color: #1f1f1f;
 }
 
-.college-name {
-  margin: 6px 0 0;
-  font-weight: 600;
-  color: #1e1b4b;
-  font-size: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* Glow effect */
+.card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  z-index: -1;
+  background: radial-gradient(
+    circle at top right,
+    rgba(97, 40, 198, 0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
-/* Responsive */
-@media (max-width: 640px) {
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .student-name {
-    font-size: 1.2rem;
-  }
+.student-card:hover .card-glow {
+  opacity: 1;
 }

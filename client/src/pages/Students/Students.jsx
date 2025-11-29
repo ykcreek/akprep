@@ -72,7 +72,12 @@ export default function Students() {
 
           <div className="students-detail">
             {selectedStudent ? (
-              <StudentDetail student={selectedStudent} />
+              <StudentDetail
+                student={selectedStudent}
+                onPlanChange={(updatedStudent) => {
+                    setSelectedStudent(updatedStudent);   
+                }}
+                />
             ) : (
               <div className="students-empty">
                 <h3>No student selected</h3>

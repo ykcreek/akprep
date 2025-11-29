@@ -22,6 +22,11 @@ def load_config(app):
     app.config["MAIL_PASSWORD"] = os.getenv("EMAIL_PASSWORD")
     app.config["MAIL_DEFAULT_SENDER"] = os.getenv("EMAIL_ADDRESS")
 
+    app.config["PLAN_URL_STARTER"] = os.getenv("PLAN_URL_STARTER")
+    app.config["PLAN_URL_GROWTH"] = os.getenv("PLAN_URL_GROWTH")
+    app.config["PLAN_URL_PREMIUM"] = os.getenv("PLAN_URL_PREMIUM")
+
+
     # Firestore client
     app.db = firestore.Client()
 

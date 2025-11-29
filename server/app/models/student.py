@@ -16,7 +16,7 @@ def save_student_to_db(form):
             fields[key] = {"booleanValue": value}
         else:
             fields[key] = {"stringValue": str(value)}
-
+    fields["seen"] = {"booleanValue": False}
     payload = {
         "fields": fields
     }

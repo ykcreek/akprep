@@ -3,10 +3,11 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
 import StudentForm from './pages/StudentForm/StudentForm'
-import Checkout from './components/Checkout/Checkout'
 import Calendar from './pages/Calendar/Calendar'
 import AdminDashboard from './pages/AdminDashboard/AdminDashboard'
 import Login from './pages/Login/Login'
+import Signup from './pages/SignUp/SignUp'
+import Client from './pages/Client/Client'
 import { useState } from 'react'
 
 function App() {
@@ -23,14 +24,24 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/student-form" element={<StudentForm />} />
-          <Route path="/payment" element={<Checkout />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
+          <Route path="/signup" element={<Signup />} />
           <Route
             path="/admin"
             element={
               isAuthenticated && localStorage.getItem("role") === "admin" ? (
                 <AdminDashboard />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+          <Route
+            path="/client"
+            element={
+              isAuthenticated && localStorage.getItem("role") === "student" ? (
+                <Client />
               ) : (
                 <Navigate to="/login" replace />
               )
