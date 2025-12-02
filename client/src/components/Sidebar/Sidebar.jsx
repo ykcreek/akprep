@@ -1,7 +1,8 @@
-// src/components/Sidebar/Sidebar.jsx
+import { useContext } from "react"; // ← THIS WAS MISSING
 import { Users, BarChart3, Settings, LogOut } from "lucide-react";
 import "./Sidebar.css";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const menu = [
   { id: "students", label: "Students", icon: Users },
@@ -11,17 +12,12 @@ const menu = [
 
 export default function Sidebar({ selected, setSelected }) {
   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext); // Now works perfectly
 
   const handleLogout = () => {
-    // Remove all login data
-    localStorage.removeItem("token");
-    localStorage.removeItem("uid");
-    localStorage.removeItem("role");
-
-    // Redirect to login
-    navigate("/login");
-  };
-
+    logout();
+    navigate("/login", { replace: true });
+    };
   return (
     <aside className="admin-sidebar">
       <div className="sidebar-inner">

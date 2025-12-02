@@ -1,295 +1,203 @@
-/* src/components/StudentDetails/StudentDetails.css */
-.student-detail {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(142, 76, 248, 0.15);
-  border: 1px solid rgba(142, 76, 248, 0.2);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+/* ===== Modern Design System ===== */
+
+:root {
+  --bg: #ffffff;
+  --bg-light: #f7f8fa;
+  --card: #ffffff;
+  --border: #e4e6eb;
+  --text: #1a1a1a;
+  --text-light: #4a4a4a;
+  --brand: #8e4cf8;
+  --radius: 16px;
+  --shadow: 0px 4px 10px rgba(0,0,0,0.06);
 }
 
-.detail-header {
-  padding: 2rem 2rem 1.5rem;
-  background: linear-gradient(135deg, rgba(142, 76, 248, 0.08), transparent);
-  border-bottom: 1px solid rgba(142, 76, 248, 0.15);
+/* Layout Container */
+
+.student-detail-modern {
+  background: var(--bg);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* HEADER */
+
+.detail-header-modern {
   display: flex;
+  gap: 20px;
   align-items: center;
-  gap: 1.5rem;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
 }
 
-.detail-avatar {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #8e4cf8, #6d28d9);
+.detail-avatar-modern {
+  width: 64px;
+  height: 64px;
+  background: var(--brand);
   color: white;
   border-radius: 50%;
+  font-weight: 600;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  font-weight: 800;
-  flex-shrink: 0;
 }
 
-.detail-name {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #1e1b4b;
+.detail-header-info {
+  flex: 1;
+}
+
+.detail-name-modern {
+  font-size: 1.6rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.spoken-tag {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  font-size: 0.7rem;
+.plan-tag-modern {
   padding: 4px 10px;
-  border-radius: 999px;
-  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 8px;
+  background: gray;
+  color: white;
 }
 
-.detail-meta {
+.detail-meta-modern {
+  margin-top: 6px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: 8px;
-  color: #6d28d9;
-  font-size: 0.95rem;
+  gap: 20px;
+  color: var(--text-light);
+  font-size: 0.9rem;
 }
 
-.detail-meta span {
+.detail-meta-modern span {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-/* Tabs */
-.detail-tabs {
-  display: flex;
-  background: rgba(142, 76, 248, 0.05);
-  border-bottom: 1px solid rgba(142, 76, 248, 0.15);
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 1rem;
-  background: none;
+/* Edit Plan */
+.edit-plan-btn-modern {
+  margin-top: 12px;
+  background: var(--brand);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
   border: none;
-  color: #94a3b8;
-  font-weight: 600;
   cursor: pointer;
+}
+
+.plan-edit-modern {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+}
+
+.plan-edit-modern select {
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.save-plan-btn-modern {
+  background: var(--brand);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+.cancel-plan-btn-modern {
+  background: #eee;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+/* ===== TABS ===== */
+
+.tabs-modern {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn-modern {
+  padding: 10px 14px;
+  border-radius: 10px 10px 0 0;
+  font-size: 0.95rem;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.3s ease;
+  gap: 6px;
+  cursor: pointer;
 }
 
-.tab-btn:hover {
-  background: rgba(142, 76, 248, 0.1);
-  color: #8e4cf8;
-}
-
-.tab-btn.active {
-  background: white;
-  color: #8e4cf8;
-  position: relative;
-}
-
-.tab-btn.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 3px;
-  background: #8e4cf8;
-  border-radius: 2px;
+.tab-btn-modern.active {
+  background: var(--bg-light);
+  color: var(--text);
+  font-weight: 600;
 }
 
 /* Content */
-.tab-content {
-  flex: 1;
-  padding: 2rem;
-  overflow-y: auto;
+
+.tab-content-modern {
+  padding-top: 20px;
 }
 
-.tab-pane h3 {
-  margin: 0 0 1.5rem;
-  font-size: 1.4rem;
-  color: #1e1b4b;
+/* Cards */
+
+.card-modern {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
 }
 
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.info-card {
-  background: rgba(142, 76, 248, 0.04);
-  padding: 1.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(142, 76, 248, 0.15);
-}
-
-.info-card h4 {
-  margin: 0 0 1rem;
+.card-title-modern {
+  font-weight: 600;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #6d28d9;
-  font-size: 1.1rem;
 }
 
-.stats, .stats-large {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  font-size: 1.1rem;
+/* Lists */
+
+.college-list-modern li {
+  padding: 4px 0;
 }
 
-.stats-large > div {
-  padding: 1rem;
-  background: white;
-  border-radius: 12px;
-  border: 1px solid rgba(142, 76, 248, 0.2);
-}
-
-.highlight {
-  color: #8e4cf8;
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
-.college-list, .college-full-list {
-  padding-left: 1.2rem;
-  margin: 0;
-}
-
-.college-full-list {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.college-full-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0.75rem 1rem;
-  background: rgba(142, 76, 248, 0.05);
-  border-radius: 12px;
-  border-left: 4px solid #8e4cf8;
-}
-
-.rank {
-  background: #8e4cf8;
-  color: white;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-.activities-text, .notes-text {
-  white-space: pre-wrap;
-  line-height: 1.7;
-  color: #444;
-  font-size: 1.02rem;
-}
-
-.empty {
-  color: #94a3b8;
-  font-style: italic;
-  text-align: center;
-  padding: 3rem;
-  background: rgba(142, 76, 248, 0.02);
-  border-radius: 16px;
-}
-
-/* ========= PLAN TAG ========= */
-.plan-tag {
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
+.college-full-list-modern .rank {
+  color: var(--brand);
   font-weight: 600;
-  margin-left: 10px;
-  color: white;
+  margin-right: 8px;
 }
 
-/* Colors for each plan */
-.plan-lead {
-  background: #6b7280; /* gray */
+.info-pairs-modern {
+  display: grid;
+  gap: 6px;
+  font-size: 0.95rem;
 }
 
-.plan-starter {
-  background: #3b82f6; /* blue */
+.info-pairs-modern.large {
+  font-size: 1rem;
 }
 
-.plan-growth {
-  background: #10b981; /* green */
+/* Text */
+
+.text-modern {
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
-.plan-premium {
-  background: #8b5cf6; /* purple */
-}
-
-/* ========= EDIT PLAN BUTTON ========= */
-.edit-plan-btn {
-  margin-top: 8px;
-  padding: 6px 12px;
-  font-size: 13px;
-  border: none;
-  border-radius: 6px;
-  background: #6128c6;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.edit-plan-btn:hover {
-  background: #4e1fa3;
-}
-
-/* ========= PLAN DROPDOWN BOX ========= */
-.plan-edit-box {
-  margin-top: 8px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.plan-edit-box select {
-  padding: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
-
-.save-plan-btn {
-  padding: 6px 12px;
-  background: #0ea5e9;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.cancel-plan-btn {
-  padding: 6px 12px;
-  background: #e11d48;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+.empty-modern {
+  color: var(--text-light);
+  font-style: italic;
 }

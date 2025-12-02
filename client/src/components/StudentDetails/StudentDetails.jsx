@@ -1,21 +1,22 @@
-// src/components/StudentDetails/StudentDetails.jsx
+// StudentDetails.jsx (modern UI)
 import { useState } from "react";
 import {
   Phone,
   Mail,
-  Calendar,
+  CalendarDays,
   Trophy,
   Target,
   FileText,
-  User,
+  User2,
   GraduationCap,
+  School,
 } from "lucide-react";
 import "./StudentDetails.css";
 
 const tabs = [
-  { id: "overview", label: "Overview", icon: User },
+  { id: "overview", label: "Overview", icon: User2 },
   { id: "academics", label: "Academics", icon: GraduationCap },
-  { id: "colleges", label: "Colleges", icon: Target },
+  { id: "colleges", label: "Colleges", icon: School },
   { id: "activities", label: "Activities", icon: Trophy },
   { id: "notes", label: "Notes", icon: FileText },
 ];
@@ -33,6 +34,7 @@ export default function StudentDetail({ student, onPlanChange }) {
     gpa,
     sat,
     act,
+    college,
     colleges = "",
     extracurriculars = "",
     notes = "",
@@ -41,14 +43,9 @@ export default function StudentDetail({ student, onPlanChange }) {
 
   const collegeList = colleges.split(",").filter(Boolean);
 
-  // ========================================
-  // 🔥 Save plan to backend (includes token)
-  // ========================================
   const savePlan = async () => {
     try {
       const token = localStorage.getItem("token");
-
-      const fullName = `${firstName} ${lastName}`.trim();
 
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/admin/update-plan`,
@@ -60,20 +57,17 @@ export default function StudentDetail({ student, onPlanChange }) {
           },
           body: JSON.stringify({
             studentId: student.id,
-            name: fullName,
-            email: email,
-            plan: plan
+            name: `${firstName} ${lastName}`.trim(),
+            email,
+            plan
           })
         }
       );
 
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.error || "Failed to update plan.");
 
-      // Update parent
       onPlanChange({ ...student, plan });
-
       setEditingPlan(false);
     } catch (err) {
       alert(err.message);
@@ -86,38 +80,35 @@ export default function StudentDetail({ student, onPlanChange }) {
   };
 
   return (
-    <div className="student-detail">
-      {/* Header */}
-      <div className="detail-header">
-        <div className="detail-avatar">
+    <div className="student-detail-modern">
+      {/* ---------------------------------------------------- */}
+      {/* HEADER */}
+      {/* ---------------------------------------------------- */}
+      <div className="detail-header-modern">
+        <div className="detail-avatar-modern">
           {firstName[0]}{lastName[0]}
         </div>
 
-        <div>
-          <h2 className="detail-name">
+        <div className="detail-header-info">
+          <h2 className="detail-name-modern">
             {firstName} {lastName}
-
-            <span className={`plan-tag plan-${plan || "lead"}`}>
+            <span className={`plan-tag-modern plan-${plan || "lead"}`}>
               {planLabel(plan)}
             </span>
           </h2>
 
-          <div className="detail-meta">
-            <span><Mail size={14} /> {email}</span>
-            {phone && <span><Phone size={14} /> {phone}</span>}
-            <span>
-              <Calendar size={14} /> Joined{" "}
-              {new Date(timestamp || Date.now()).toLocaleDateString()}
-            </span>
+          <div className="detail-meta-modern">
+            <span><Mail size={16} /> {email}</span>
+            {phone && <span><Phone size={16} /> {phone}</span>}
+            <span><CalendarDays size={16} /> Joined {new Date(timestamp).toLocaleDateString()}</span>
           </div>
 
-          {/* Edit Plan */}
           {!editingPlan ? (
-            <button className="edit-plan-btn" onClick={() => setEditingPlan(true)}>
+            <button className="edit-plan-btn-modern" onClick={() => setEditingPlan(true)}>
               Edit Plan
             </button>
           ) : (
-            <div className="plan-edit-box">
+            <div className="plan-edit-modern">
               <select value={plan} onChange={(e) => setPlan(e.target.value)}>
                 <option value="basic">Free Tier</option>
                 <option value="starter">Starter</option>
@@ -125,14 +116,11 @@ export default function StudentDetail({ student, onPlanChange }) {
                 <option value="premium">Premium</option>
               </select>
 
-              <button onClick={savePlan} className="save-plan-btn">
+              <button onClick={savePlan} className="save-plan-btn-modern">
                 Save
               </button>
 
-              <button
-                className="cancel-plan-btn"
-                onClick={() => setEditingPlan(false)}
-              >
+              <button className="cancel-plan-btn-modern" onClick={() => setEditingPlan(false)}>
                 Cancel
               </button>
             </div>
@@ -140,14 +128,16 @@ export default function StudentDetail({ student, onPlanChange }) {
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="detail-tabs">
+      {/* ---------------------------------------------------- */}
+      {/* TABS */}
+      {/* ---------------------------------------------------- */}
+      <div className="tabs-modern">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           return (
             <button
               key={tab.id}
-              className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
+              className={`tab-btn-modern ${activeTab === tab.id ? "active" : ""}`}
               onClick={() => setActiveTab(tab.id)}
             >
               <Icon size={18} />
@@ -157,78 +147,84 @@ export default function StudentDetail({ student, onPlanChange }) {
         })}
       </div>
 
-      {/* Tab Content */}
-      <div className="tab-content">
+      {/* ---------------------------------------------------- */}
+      {/* TAB CONTENT */}
+      {/* ---------------------------------------------------- */}
+      <div className="tab-content-modern">
+
+        {/* Overview */}
         {activeTab === "overview" && (
-          <div className="tab-pane">
-            <div className="info-grid">
-              <div className="info-card">
-                <h4><GraduationCap size={18} /> Academic Snapshot</h4>
-                <div className="stats">
-                  {gpa && <div><strong>GPA:</strong> <span className="highlight">{gpa}</span></div>}
-                  {sat && <div><strong>SAT:</strong> <span className="highlight">{sat}</span></div>}
-                  {act && <div><strong>ACT:</strong> <span className="highlight">{act}</span></div>}
-                </div>
+          <div className="overview-grid">
+            <div className="card-modern">
+              <h4 className="card-title-modern">
+                <GraduationCap size={18} /> Academic Snapshot
+              </h4>
+              <div className="info-pairs-modern">
+                {gpa && <div><strong>GPA:</strong> {gpa}</div>}
+                {sat && <div><strong>SAT:</strong> {sat}</div>}
+                {act && <div><strong>ACT:</strong> {act}</div>}
+                {college && (
+                  <div><strong>Current College:</strong> {college}</div>
+                )}
               </div>
+            </div>
 
-              <div className="info-card">
-                <h4><Target size={18} /> Top 3 Dream Schools</h4>
-                <ol className="college-list">
-                  {collegeList.slice(0, 3).map((c, i) => (
-                    <li key={i}>{c}</li>
-                  ))}
-                  {collegeList.length > 3 && (
-                    <li className="more">+ {collegeList.length - 3} more...</li>
-                  )}
-                </ol>
-              </div>
+            <div className="card-modern">
+              <h4 className="card-title-modern"><School size={18} /> Dream Schools</h4>
+              <ol className="college-list-modern">
+                {collegeList.slice(0, 3).map((c, i) => (
+                  <li key={i}>{c}</li>
+                ))}
+                {collegeList.length > 3 && (
+                  <li className="more">+ {collegeList.length - 3} more...</li>
+                )}
+              </ol>
             </div>
           </div>
         )}
 
+        {/* Academics */}
         {activeTab === "academics" && (
-          <div className="tab-pane">
-            <h3>Academic Profile</h3>
-            <div className="stats-large">
-              {gpa ? <div><span>GPA</span> <strong>{gpa}</strong></div> : <p>No GPA yet</p>}
-              {sat ? <div><span>SAT</span> <strong>{sat}</strong></div> : <p>No SAT</p>}
-              {act ? <div><span>ACT</span> <strong>{act}</strong></div> : <p>No ACT</p>}
+          <div className="card-modern">
+            <h3 className="card-title-modern">Academic Profile</h3>
+            <div className="info-pairs-modern large">
+              <div><span>GPA</span> <strong>{gpa || "N/A"}</strong></div>
+              <div><span>SAT</span> <strong>{sat || "N/A"}</strong></div>
+              <div><span>ACT</span> <strong>{act || "N/A"}</strong></div>
+              <div><span>Current College</span> <strong>{college || "N/A"}</strong></div>
             </div>
           </div>
         )}
 
+        {/* Colleges */}
         {activeTab === "colleges" && (
-          <div className="tab-pane">
-            <h3>Dream Schools ({collegeList.length})</h3>
+          <div className="card-modern">
+            <h3 className="card-title-modern">Dream Schools</h3>
             {collegeList.length > 0 ? (
-              <ul className="college-full-list">
+              <ul className="college-full-list-modern">
                 {collegeList.map((college, i) => (
-                  <li key={i}>
-                    <span className="rank">#{i + 1}</span> {college}
-                  </li>
+                  <li key={i}><span className="rank">#{i + 1}</span> {college}</li>
                 ))}
               </ul>
-            ) : (
-              <p className="empty">No colleges listed yet.</p>
-            )}
+            ) : <p className="empty-modern">No colleges listed.</p>}
           </div>
         )}
 
+        {/* Activities */}
         {activeTab === "activities" && (
-          <div className="tab-pane">
-            <h3>Activities & Spikes</h3>
+          <div className="card-modern">
+            <h3 className="card-title-modern">Activities & Spikes</h3>
             {extracurriculars ? (
-              <p className="activities-text">{extracurriculars}</p>
-            ) : (
-              <p className="empty">No activities yet.</p>
-            )}
+              <p className="text-modern">{extracurriculars}</p>
+            ) : <p className="empty-modern">No activities provided.</p>}
           </div>
         )}
 
+        {/* Notes */}
         {activeTab === "notes" && (
-          <div className="tab-pane">
-            <h3>Additional Notes</h3>
-            {notes ? <p className="notes-text">{notes}</p> : <p className="empty">No notes yet.</p>}
+          <div className="card-modern">
+            <h3 className="card-title-modern">Notes</h3>
+            {notes ? <p className="text-modern">{notes}</p> : <p className="empty-modern">No notes yet.</p>}
           </div>
         )}
       </div>

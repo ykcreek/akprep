@@ -176,8 +176,18 @@ export default function StudentForm() {
             )}
           </div>
 
-          <button type="submit" className="continue-btn">
-            Book a Call
+          <button 
+            type="submit" 
+            className={`continue-btn ${status === "sending" ? "btn-disabled" : ""}`}
+            disabled={status === "sending"}
+          >
+            {status === "sending" ? (
+              <>
+                <span className="loading-spinner"></span> Submitting...
+              </>
+            ) : (
+              "Book a Call"
+            )}
           </button>
         </form>
         <p className="process-disclaimer">

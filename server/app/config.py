@@ -13,7 +13,7 @@ def load_config(app):
     app.db = firestore.Client()
 
     app.config["STRIPE_SECRET_KEY"] = os.getenv("STRIPE_SECRET_KEY")
-    app.config["YOUR_DOMAIN"] = os.getenv("YOUR_DOMAIN", "http://localhost:5173")
+    app.config["YOUR_DOMAIN"] = os.getenv("YOUR_DOMAIN")
 
     app.config["MAIL_SERVER"] = "smtp.gmail.com"
     app.config["MAIL_PORT"] = 587

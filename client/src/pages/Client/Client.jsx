@@ -7,21 +7,12 @@ import MessageBox from "../../components/MessageBox/MessageBox";
 import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
 
 export default function Client() {
+  const navigate = useNavigate();
   const [student, setStudent] = useState(null);
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
-
   const token = localStorage.getItem("token");
   const uid = localStorage.getItem("uid");
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("uid");
-    localStorage.removeItem("role");
-
-    navigate("/login");
-  };
 
   useEffect(() => {
     const fetchStudentInfo = async () => {
@@ -35,17 +26,26 @@ export default function Client() {
           body: JSON.stringify({ uid }),
         });
 
+        // 🔥 If token is expired or invalid → redirect to login
+        if (res.status === 401) {
+          localStorage.clear();
+          navigate("/login", { replace: true });
+          return;
+        }
+
         const data = await res.json();
+
         if (!res.ok) throw new Error(data.error || "Failed to load profile.");
 
         setStudent(data.student);
+
       } catch (err) {
         setError(err.message);
       }
     };
 
     fetchStudentInfo();
-  }, [uid, token]);
+  }, [uid, token, navigate]);
 
   if (error) {
     return <div className="client-error">{error}</div>;
@@ -57,21 +57,6 @@ export default function Client() {
 
   return (
     <div className="client-dashboard">
-
-      {/* ---- TOP BAR WITH LOGOUT ---- */}
-      <div className="client-topbar">
-        <button
-          className="client-logout"
-          onClick={() => {
-            localStorage.removeItem("token");
-            localStorage.removeItem("uid");
-            localStorage.removeItem("role");
-            window.location.href = "/login"; // redirect
-          }}
-        >
-          Logout
-        </button>
-      </div>
 
       {/* ---- HEADER (CENTERED) ---- */}
       <div className="client-header">

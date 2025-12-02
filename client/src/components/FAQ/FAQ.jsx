@@ -12,15 +12,15 @@ export default function FAQ() {
             <p>Offline support covers planning, editing, and review work done independently. Online support includes live calls, guidance, and real-time feedback.</p>
           </details>
           <details>
-            <summary>How early should we start</summary>
+            <summary>How early should we start?</summary>
             <p>Starting in the first year of college is ideal, but we also support rising high school seniors on quicker timelines.</p>
           </details>
           <details>
-            <summary>Do you write essays for students</summary>
+            <summary>Do you write essays for students?</summary>
             <p>No. We coach structure, voice, and clarify so the work is authentic and strong.</p>
           </details>
           <details>
-            <summary>How do payments work</summary>
+            <summary>How do payments work?</summary>
             <p>After speaking with you, we send a secure checkout link. All pricing is listed above.</p>
           </details>
         </div>

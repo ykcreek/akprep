@@ -83,11 +83,7 @@
   background: #5120a8;
 }
 
-.client-topbar {
-  display: flex;
-  justify-content: flex-end;   /* logout moves right */
-  margin-bottom: 20px;
-}
+
 
 /* Header stays fully centered */
 .client-header {
@@ -110,22 +106,6 @@
 }
 
 /* ==== LOGOUT BUTTON ==== */
-.client-logout {
-  padding: 10px 18px;
-  background: #e11d48; /* red/pink danger color */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-.client-logout:hover {
-  background: #be123c;
-  transform: translateY(-1px);
-}
 
 .client-plan-badge {
   display: inline-block;

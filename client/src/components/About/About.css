@@ -2,63 +2,69 @@
   padding: 80px 20px;
 }
 
-/* Centered + Gradient Title */
+/* === TITLE === */
 .section-title {
   font-size: clamp(28px, 4.2vw, 40px);
   margin: 0 0 10px;
   font-family: "EB Garamond", serif;
-  text-align: center; /* ← Centered */
+  text-align: center;
   background: linear-gradient(135deg, #6d28d9, #8e4cf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
-/* Subtitle stays the same */
+/* === SUBTITLE === */
 .section-sub {
   color: #6e6e73;
   max-width: 70ch;
-  text-align: center; /* ← Also center subtitle for balance */
-  margin: 0 auto;     /* ← Ensures it's centered */
+  text-align: center;
+  margin: 0 auto;
 }
 
+/* === GRID (DESKTOP) === */
 .founders {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 22px;
+  gap: 22px;
+  margin-top: 32px;
 }
 
-.founders p{
-    color: #6e6e73;
-    margin:0;
-    font-size:14px;
+/* === PERSON CARD === */
+.person {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 35px rgba(16,17,19,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
+/* Subtle hover lift for desktop */
+.person:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(16,17,19,.10);
+}
+
+/* === TEXT === */
 .person h5 {
-  margin: 0 0 4px 0 !important;   /* ← This removes the huge bottom gap */
+  margin: 0 0 4px 0 !important;
   font-size: 18px;
   font-weight: 700;
   color: #101113;
 }
 
 .person p {
-  margin: 0;               /* ← This kills any leftover margin */
-  line-height: 1.4;        /* ← Optional: makes text feel tighter */
+  margin: 0;
+  color: #6e6e73;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
-.person {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 16px;
-  align-items: center;
-  background: white;
-  border: 1px solid rgba(0,0,0,.05);
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 10px 30px rgba(16,17,19,.08);
-}
-
+/* === PORTRAIT === */
 .portrait {
   width: 120px;
   height: 120px;
@@ -70,4 +76,34 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* ------------- */
+/* 📱 MOBILE MODE */
+/* ------------- */
+@media (max-width: 700px) {
+
+  .founders {
+    grid-template-columns: 1fr;    /* stack vertically */
+    gap: 20px;
+  }
+
+  .person {
+    grid-template-columns: 1fr;    /* image on top */
+    text-align: center;            /* center everything */
+  }
+
+  .portrait {
+    margin: 0 auto 12px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .person h5 {
+    font-size: 19px;
+  }
+
+  .person p {
+    font-size: 15px;
+  }
 }
