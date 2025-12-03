@@ -1,56 +1,49 @@
 import './Services.css'
 
-export default function Services() {
+export default function Services({ content }) {
+  if (!content) return null;
+
   return (
     <section id="services" className="services-section">
       <div className="container">
 
-        {/* Centered & Refined Header */}
+        {/* Centered Header */}
         <div className="services-header">
-          <h2 className="section-title">Services & Pricing</h2>
-          <p className="section-sub">
-            Every package includes school list strategy, essay calendars, weekly check-ins, and fast feedback. Hourly add-ons available.
-          </p>
+          <h2 className="section-title">{content.title}</h2>
+          <p className="section-sub">{content.sub}</p>
         </div>
 
         {/* Feature Tags */}
         <div className="feature-grid">
-          <div className="feature">
-            <strong>Essay Essentials</strong>
-            <span>Strong structure. Clear voice. Better essays.</span>
-          </div>
-          <div className="feature">
-            <strong>Application Review</strong>
-            <span>A sharper, stronger application — reviewed, refined, and ready to submit.</span>
-          </div>
-          <div className="feature">
-            <strong>Guidance & Strategy</strong>
-            <span>Guidance that sharpens your LORs, clubs, and transfer story.</span>
-          </div>
+          {(content.features || []).map((feature, idx) => (
+            <div key={idx} className="feature">
+              <strong>{feature.name}</strong>
+              <span>{feature.desc}</span>
+            </div>
+          ))}
         </div>
 
         {/* Pricing Layout */}
         <div className="pricing-layout">
-          <div className="session-card">
-            <h3>Description of sessions</h3>
-            <div className="session-price">$80 <span>/ hour</span></div>
-            <ul className="features-list">
-              <li>Live 1-on-1 editing via Google Meet & Docs</li>
-              <li>Offline tracked feedback between sessions</li>
-              <li>Personal statement & supplemental essays</li>
-              <li>Theme, positioning & storytelling strategy</li>
-              <li>Activity spikes, resume & LOCI guidance</li>
-              <li>Recommendation letter strategy</li>
-            </ul>
-          </div>
+          {/* Session Card */}
+          {content.session && (
+            <div className="session-card">
+              <h3>{content.session.title}</h3>
+              <div className="session-price">
+                ${content.session.price} <span>/ hour</span>
+              </div>
+              <ul className="features-list">
+                {(content.session.features || []).map((feat, idx) => (
+                  <li key={idx}>{feat}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
+          {/* Packs */}
           <div className="pack-grid">
-            {[
-              { title: "Starter Pack – 5 hours", desc: "5 hours of online/offline time, used however you need" },
-              { title: "Growth Pack – 10 hours", desc: "10 hours total, including 1 bonus hour" },
-              { title: "Premium Pack – 20 hours", desc: "20 hours total, including 4 bonus hours", rate: "($67/hour)" }
-            ].map((pack, i) => (
-              <div key={i} className="pack">
+            {(content.packs || []).map((pack, idx) => (
+              <div key={idx} className="pack">
                 <div>
                   <h4 className="pack-title">
                     {pack.title}
@@ -65,5 +58,5 @@ export default function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }

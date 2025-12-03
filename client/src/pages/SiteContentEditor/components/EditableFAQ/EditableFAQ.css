@@ -1,0 +1,147 @@
+/* EditableFAQ.css — every class is now prefixed correctly */
+
+.editable-faq-section {
+  padding: 90px 20px;
+  background: #fff;
+}
+
+.editable-faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Title & Subtitle */
+.editable-faq-title {
+  font-family: "EB Garamond", serif;
+  font-size: clamp(32px, 4.5vw, 44px);
+  font-weight: 800;
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, #6d28d9, #8e4cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  outline: none;
+}
+
+.editable-faq-subtitle {
+  color: #555;
+  font-size: 16.5px;
+  max-width: 68ch;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  outline: none;
+}
+
+/* FAQ List */
+.editable-faq-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.editable-faq-item {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(16, 17, 19, .08);
+  text-align: left;
+  overflow: hidden;
+}
+
+/* Question (summary) */
+.editable-faq-question {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  color: #101113;
+  outline: none;
+  list-style: none;
+  position: relative;
+  padding-right: 36px;
+  display: block;
+}
+
+/* Hide default marker */
+.editable-faq-question::-webkit-details-marker,
+.editable-faq-question::marker {
+  display: none;
+}
+
+/* Custom arrow */
+.editable-faq-question::after {
+  content: "↓";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: #8e4cf8;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.editable-faq-item[open] .editable-faq-question::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Answer */
+.editable-faq-answer {
+  color: #6e6e73;
+  margin: 12px 0 4px;
+  line-height: 1.55;
+  font-size: 15px;
+  outline: none;
+  padding-top: 8px;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .editable-faq-section { padding: 70px 16px; }
+  .editable-faq-item { padding: 16px; }
+  .editable-faq-question { 
+    font-size: 15.5px;
+    padding-right: 40px;
+  }
+}
+
+/* Beautiful editing focus */
+[contenteditable]:focus {
+  outline: 2px solid #8e4cf8 !important;
+  outline-offset: 2px;
+  border-radius: 6px;
+  background: rgba(142, 76, 248, 0.04);
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.editor-actions button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.editor-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.editor-actions button:first-child {
+  background-color: #8e4cf8;
+  color: white;
+}
+
+.editor-actions button:last-child {
+  background-color: #f3f3f3;
+  color: #333;
+}

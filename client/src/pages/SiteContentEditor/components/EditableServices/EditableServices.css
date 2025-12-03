@@ -1,0 +1,230 @@
+/* EditableServices.css */
+.editable-services-section {
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, transparent, rgba(142,76,248,.02));
+}
+
+.editable-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.editable-services-header {
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.editable-section-title {
+  font-family: "EB Garamond", serif;
+  font-size: clamp(32px, 4.5vw, 42px);
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #6d28d9, #8e4cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  outline: none;
+}
+
+.editable-section-sub {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 68ch;
+  margin: 0 auto;
+  outline: none;
+}
+
+/* Feature Tags */
+.editable-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.editable-feature {
+  background: white;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 18px;
+  padding: 18px 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(16,17,19,.06);
+}
+
+.editable-feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(142,76,248,.18);
+  border-color: rgba(142,76,248,.3);
+}
+
+.editable-feature strong,
+.editable-feature span {
+  display: block;
+  outline: none;
+}
+
+.editable-feature strong {
+  font-size: 16.5px;
+  color: #101113;
+  margin-bottom: 6px;
+}
+
+.editable-feature span {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Pricing Layout */
+.editable-pricing-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.editable-session-card,
+.editable-pack {
+  background: white;
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 10px 30px rgba(16,17,19,.08);
+  border: 1px solid rgba(0,0,0,.05);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.editable-session-card:hover,
+.editable-pack:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(142,76,248,.16);
+  border-color: rgba(142,76,248,.25);
+}
+
+.editable-session-card h3 {
+  font-family: "EB Garamond", serif;
+  font-size: 21px;
+  margin: 0 0 10px;
+  color: #101113;
+  outline: none;
+}
+
+.editable-session-price {
+  font-size: 36px;
+  font-weight: 800;
+  color: #101113;
+  margin: 6px 0 16px;
+}
+
+.editable-session-price span:first-child { outline: none; }
+.editable-session-price span:last-child { font-size: 18px; font-weight: 500; color: #777; }
+
+.editable-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  flex-grow: 1;
+  display: grid;
+  gap: 10px;
+  font-size: 14.8px;
+  color: #444;
+}
+
+.editable-features-list li {
+  position: relative;
+  padding-left: 26px;
+  line-height: 1.5;
+}
+
+.editable-features-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #22c55e;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.editable-pack-grid { display: grid; gap: 18px; }
+.editable-pack-title span { outline: none; }
+.editable-rate { color: #8e4cf8; font-weight: 600; font-size: 13.5px; margin-left: 6px; }
+.editable-pack-desc { color: #555; margin: 0 0 16px; font-size: 14.5px; line-height: 1.45; outline: none; }
+
+.editable-pack-btn {
+  margin-top: auto;
+  padding: 11px 22px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #b78df5, #8e4cf8);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 20px rgba(142,76,248,.4);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.editable-pack-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(142,76,248,.5);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .editable-pricing-layout,
+  .editable-feature-grid { grid-template-columns: 1fr; }
+  .editable-feature-grid { gap: 14px; }
+}
+
+@media (max-width: 480px) {
+  .editable-services-section { padding: 60px 16px; }
+  .editable-section-title { font-size: 32px; }
+}
+
+/* Editing feedback */
+[contenteditable]:focus {
+  outline: 2px solid #8e4cf8 !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.editor-actions button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.editor-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.editor-actions button:first-child {
+  background-color: #8e4cf8;
+  color: white;
+}
+
+.editor-actions button:last-child {
+  background-color: #f3f3f3;
+  color: #333;
+}

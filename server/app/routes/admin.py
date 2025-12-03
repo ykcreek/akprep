@@ -79,3 +79,4 @@ def update_plan():
         "student": updated_student,
         "message": f"Plan updated to {new_plan}"
     }), 200
+

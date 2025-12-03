@@ -9,6 +9,7 @@ import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/SignUp/SignUp";
 import Client from "./pages/Client/Client";
+import SiteContentEditor from "./pages/SiteContentEditor/SiteContentEditor";
 
 // Import your AuthProvider and ProtectedRoute
 import { AuthProvider } from "./context/AuthContext";
@@ -57,6 +58,8 @@ function AppContent() {
               </ProtectedRoute>
             }
           />
+
+          <Route path="/admin/site" element={<ProtectedRoute adminOnly={true}><SiteContentEditor /></ProtectedRoute>} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

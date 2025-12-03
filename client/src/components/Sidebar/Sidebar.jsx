@@ -1,23 +1,29 @@
-import { useContext } from "react"; // ← THIS WAS MISSING
-import { Users, BarChart3, Settings, LogOut } from "lucide-react";
+// src/components/Sidebar/Sidebar.jsx
+import { useContext } from "react";
+import { Users, BarChart3, Settings, LogOut, Compass } from "lucide-react";
 import "./Sidebar.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 const menu = [
-  { id: "students", label: "Students", icon: Users },
-  { id: "analytics", label: "Analytics", icon: BarChart3 },
-  { id: "settings", label: "Settings", icon: Settings },
+  { id: "students", label: "Students", icon: Users, path: "/admin/students" },
+  { id: "site", label: "Change Site", icon: Compass, path: "/admin/site" },
 ];
 
 export default function Sidebar({ selected, setSelected }) {
   const navigate = useNavigate();
-  const { logout } = useContext(AuthContext); // Now works perfectly
+  const { logout } = useContext(AuthContext);
+
+  const handleMenuClick = (item) => {
+    setSelected(item.id);
+    navigate(item.path); 
+  };
 
   const handleLogout = () => {
     logout();
     navigate("/login", { replace: true });
-    };
+  };
+
   return (
     <aside className="admin-sidebar">
       <div className="sidebar-inner">
@@ -34,7 +40,7 @@ export default function Sidebar({ selected, setSelected }) {
               <button
                 key={item.id}
                 className={`menu-item ${selected === item.id ? "active" : ""}`}
-                onClick={() => setSelected(item.id)}
+                onClick={() => handleMenuClick(item)}
               >
                 <Icon size={20} className="menu-icon" />
                 <span className="menu-label">{item.label}</span>

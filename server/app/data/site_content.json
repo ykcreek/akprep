@@ -1,0 +1,166 @@
+{
+  "hero": {
+    "eyebrow": "COLLEGE FOR STUDENTS BY STUDENTS",
+    "title": "Guiding students to stronger applications with structure, clarity, and strategy",
+    "subtitle": "We help students craft standout college applications with a proven, student-led system.",
+    "hero-pills": [
+      "Peer mentors from NYU Stern",
+      "Essay coaches, interview prep",
+      "Transparent pricing"
+    ],
+    "hero-cards": [
+      {
+        "tag": "Founders",
+        "title": "Our story",
+        "description": "Two Stern students who transferred into a top business program, looking to help out fellow transfers"
+      },
+      {
+        "tag": "Track Record",
+        "title": "Results that compound",
+        "description": "From state flagships to top privates, we help families target fit and ROI, not just brand names."
+      },
+      {
+        "tag": "Approach",
+        "title": "Calm, clear, consistent",
+        "description": "Weekly check ins, crisp templates, and lightweight dashboards keep students moving without burnout."
+      },
+      {
+        "tag": "Support",
+        "title": "Always reachable",
+        "description": "Fast feedback on drafts and decisions when it matters most."
+      }
+    ]
+  },
+  "about": {
+    "founders": [
+      {
+        "name": "Krissh Kolhatkar",
+        "desc": "Co founder. Student at NYU Stern majoring in Finance and Statistics. Systems, dashboards, and essay frameworks that reduce stress and raise clarity.",
+        "img": "/Headshot-Krissh Kolhatkar.JPG"
+      },
+      {
+        "name": "Arnav Raghuvanshi",
+        "desc": "Co founder. Student at NYU Stern majoring in Finance. School list strategy, interview prep, and high leverage feedback.",
+        "img": "/arnav headshot.jpg"
+      }
+    ],
+    "sub": "We are a student led advisory focused on clarity, craft, and confidence. Your story should sound like you and stand up under pressure.",
+    "title": "About Us"
+  },
+  "process": {
+    "disclaimer": "Vita provides advising and coaching only; we do not guarantee admission to any institution.",
+    "processes": [
+      {
+        "num": "1",
+        "title": "Discover",
+        "desc": "Free consultation to map goals, constraints, and a first draft school list.",
+        "items": [
+          "Profile review",
+          "Timeline alignment",
+          "Fit criteria"
+        ]
+      },
+      {
+        "num": "2",
+        "title": "Plan",
+        "desc": "Calendar, essay prompts, and a shared workspace so everyone stays aligned.",
+        "items": [
+          "Essay schedule",
+          "Task templates",
+          "Check-in cadence"
+        ]
+      },
+      {
+        "num": "3",
+        "title": "Build",
+        "desc": "Weekly sprints on essays, activities, and recommendations with tight feedback loops.",
+        "items": [
+          "Draft reviews",
+          "Activity spikes",
+          "Interview practice"
+        ]
+      },
+      {
+        "num": "4",
+        "title": "Polish",
+        "desc": "Final QA, interview practice, and financial aid checks before you submit.",
+        "items": [
+          "Final pass",
+          "Scholarship sweep",
+          "Submit with confidence"
+        ]
+      }
+    ],
+    "sub": "Simple steps. Clear deliverables. No surprises.",
+    "title": "Our process"
+  },
+  "services": {
+    "features": [
+      {
+        "name": "Essay Essentials",
+        "desc": "Strong structure. Clear voice. Better essays."
+      },
+      {
+        "name": "Application Review",
+        "desc": "A sharper, stronger application — reviewed, refined, and ready to submit."
+      },
+      {
+        "name": "Guidance & Strategy",
+        "desc": "Guidance that sharpens your LORs, clubs, and transfer story."
+      }
+    ],
+    "packs": [
+      {
+        "title": "Starter Pack – 5 hours",
+        "rate": null,
+        "desc": "5 hours of online/offline time, used however you need"
+      },
+      {
+        "title": "Growth Pack – 10 hours",
+        "rate": null,
+        "desc": "10 hours total, including 1 bonus hour"
+      },
+      {
+        "title": "Premium Pack – 20 hours",
+        "rate": "($67/hour)",
+        "desc": "20 hours total, including 4 bonus hours"
+      }
+    ],
+    "session": {
+      "features": [
+        "Live 1-on-1 editing via Google Meet & Docs",
+        "Offline tracked feedback between sessions",
+        "Personal statement & supplemental essays",
+        "Theme, positioning & storytelling strategy",
+        "Activity spikes, resume & LOCI guidance",
+        "Recommendation letter strategy"
+      ],
+      "price": "80",
+      "title": "Description of sessions"
+    },
+    "sub": "Every package includes school list strategy, essay calendars, weekly check-ins, and fast feedback. Hourly add-ons available.",
+    "title": "Services & Pricing"
+  },
+  "faq": {
+    "faqs": [
+      {
+        "question": "What is the difference between Offline/Online Hours?",
+        "answer": "Offline support covers planning, editing, and review work done independently. Online support includes live calls, guidance, and real-time feedback."
+      },
+      {
+        "question": "How early should we start?",
+        "answer": "Starting in the first year of college is ideal, but we also support rising high school seniors on quicker timelines."
+      },
+      {
+        "question": "Do you write essays for students?",
+        "answer": "No. We coach structure, voice, and clarify so the work is authentic and strong."
+      },
+      {
+        "question": "How do payments work?",
+        "answer": ""
+      }
+    ],
+    "sub": "Quick answers to common questions.",
+    "title": "Frequently Asked Questions"
+  }
+}

@@ -1,0 +1,156 @@
+/* EditableHero.css */
+.editable-hero {
+  padding: 120px 20px 80px;
+  background: radial-gradient(1200px 700px at 85% -10%, rgba(142,76,248,.08), transparent 60%),
+              radial-gradient(900px 600px at -10% 20%, rgba(109,40,217,.06), transparent 60%),
+              #f8f8fb;
+}
+
+.editable-hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 32px;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.editable-hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.editable-eyebrow {
+  color: #8e4cf8;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  outline: none;
+}
+
+.editable-title {
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  margin: 10px 0 14px;
+  font-weight: 800;
+  font-family: "EB Garamond", serif;
+  outline: none;
+}
+
+.editable-subtitle,
+.editable-card-subtitle {
+  color: #6e6e73;
+  font-size: clamp(16px, 2vw, 18px);
+  max-width: 52ch;
+  outline: none;
+}
+
+.editable-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.editable-pill {
+  background: rgba(142, 76, 248, 0.1);
+  color: #6d28d9;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  outline: none;
+  cursor: text;
+}
+
+.editable-hero-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.editable-card {
+  background: white;
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(16,17,19,.08);
+  transition: .25s;
+  outline: none;
+}
+
+.editable-card:hover {
+  transform: translateY(-3px);
+}
+
+.editable-tag {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(142,76,248,.1);
+  color: #6d28d9;
+  outline: none;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .editable-hero { padding: 80px 20px 60px; }
+  .editable-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .editable-hero-content { align-items: center; }
+  .editable-subtitle { max-width: 100%; }
+  .editable-hero-pills { justify-content: center; }
+}
+
+@media (max-width: 600px) {
+  .editable-title { font-size: 32px; line-height: 1.1; }
+  .editable-hero { padding: 60px 14px 50px; }
+  .editable-hero-cards { grid-template-columns: 1fr; gap: 12px; }
+  .editable-card { padding: 18px; }
+}
+
+/* Visual feedback when editing */
+[contenteditable]:focus {
+  outline: 2px solid #8e4cf8 !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.editable-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-save,
+.btn-cancel {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.btn-save {
+  background-color: #6d28d9;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #5b21b6;
+}
+
+.btn-cancel {
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background-color: #e0e0e0;
+}

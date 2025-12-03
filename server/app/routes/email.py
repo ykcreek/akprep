@@ -50,3 +50,4 @@ def send_email_route():
     except Exception as e:
         print("Email sending error:", e)
         return jsonify({"error": "Email failed to send"}), 500
+
