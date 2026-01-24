@@ -1,0 +1,105 @@
+/* Terms.css */
+
+.terms-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.terms-header {
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.list-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.list-title-wrapper h1 {
+  font-family: var(--font-standard);
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #18181b;
+}
+
+.list-line {
+  height: 2px;
+  background: #8e4cf8;
+  flex: 1;
+  opacity: 0.4;
+}
+
+.terms-subtitle {
+  color: #71717a;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.last-updated {
+  font-size: 0.7rem;
+  color: #a1a1aa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.terms-intro {
+  font-family: var(--font-traditional);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #18181b;
+  margin-bottom: 48px;
+}
+
+.terms-section {
+  margin-bottom: 48px;
+}
+
+/* Bold the specific warning section slightly for emphasis */
+.warning-section p {
+  color: #18181b;
+}
+
+.section-header-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.section-header-line h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #18181b;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.thin-line {
+  height: 1px;
+  background: #e4e4e7;
+  flex: 1;
+}
+
+.terms-section p {
+  font-family: var(--font-traditional);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #52525b;
+}
+
+.terms-footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid #f4f4f5;
+  font-size: 0.85rem;
+  color: #71717a;
+}

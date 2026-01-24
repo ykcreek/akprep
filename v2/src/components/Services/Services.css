@@ -1,8 +1,9 @@
 /* Services.css */
+
 .services-section {
   padding: 100px 0;
   background-color: #fff;
-  font-family: "Charter", serif;
+  font-family: var(--font-traditional);
 }
 
 .services-container {
@@ -10,25 +11,37 @@
   margin: 0 auto;
 }
 
+/* --- Header with Horizontal Side Lines --- */
 .services-header {
+  margin-bottom: 80px;
   text-align: center;
-  margin-bottom: 70px;
+}
+
+.services-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
 }
 
 .services-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #1a1a1a;
+  white-space: nowrap;
+  letter-spacing: -0.03em;
+  margin: 0;
 }
 
-.services-accent-line {
-  width: 50px;
-  height: 3px;
+.services-line {
+  height: 1px;
   background: #8e4cf8;
-  margin: 15px auto;
+  flex: 1;
+  max-width: 120px;
+  opacity: 0.6;
 }
 
-/* Layout Wrapper */
+/* --- Layout Wrapper --- */
 .services-content-wrapper {
   display: flex;
   gap: 80px;
@@ -48,8 +61,8 @@
 }
 
 .services-currency { font-size: 1.5rem; font-weight: 600; vertical-align: top; }
-.services-amount { font-size: 4rem; font-weight: 800; line-height: 1; }
-.services-unit { font-size: 1.2rem; color: #6e6e73; margin-left: 5px; }
+.services-amount { font-size: 4rem; font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
+.services-unit { font-size: 1.2rem; color: #6e6e73; margin-left: 5px; font-style: italic; }
 
 .services-bullet-list {
   list-style: none;
@@ -60,9 +73,9 @@
   display: flex;
   gap: 12px;
   font-size: 1.15rem;
-  color: #444;
-  margin-bottom: 18px;
-  line-height: 1.4;
+  color: #444446;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .services-bullet-icon {
@@ -81,17 +94,18 @@
 .services-package-card {
   width: 100%;
   background: #f9f9fb;
-  border: 1px solid rgba(142, 76, 248, 0.2);
-  padding: 40px;
-  border-radius: 12px;
+  border: 1px solid #e2e2e4;
+  padding: 48px 40px;
+  border-radius: 4px; /* Sharper corners for academic feel */
   text-align: center;
   position: relative;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
 }
 
 .services-package-card:hover {
   transform: translateY(-5px);
+  border-color: #8e4cf8;
 }
 
 .services-badge {
@@ -101,63 +115,85 @@
   transform: translateX(-50%);
   background: #8e4cf8;
   color: white;
-  padding: 4px 12px;
-  font-size: 0.75rem;
+  padding: 4px 14px;
+  font-family: var(--font-standard);
+  font-size: 0.7rem;
   text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border-radius: 4px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
 }
 
 .services-package-title {
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 1.5rem;
+  font-family: var(--font-standard);
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  color: #111;
 }
 
 .services-package-price {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 800;
   color: #8e4cf8;
   margin-bottom: 20px;
+  letter-spacing: -0.04em;
 }
 
 .services-package-description {
   font-size: 1.1rem;
-  color: #515154;
+  color: #555558;
   line-height: 1.6;
   margin-bottom: 30px;
 }
 
 .services-package-button {
   width: 100%;
-  padding: 16px;
-  background: #1d1d1f;
+  padding: 18px;
+  background: #1a1a1a;
   color: white;
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
+  border-radius: 4px;
+  font-family: var(--font-standard);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .services-package-button:hover {
-  background: #000;
+  background: #8e4cf8;
 }
 
 .services-package-addon {
-  margin-top: 20px;
+  margin-top: 24px;
   font-size: 0.95rem;
   color: #8e4cf8;
   font-style: italic;
+  font-weight: 500;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
   .services-content-wrapper {
     flex-direction: column;
-    gap: 50px;
+    gap: 60px;
+  }
+  
+  .services-line {
+    display: none;
+  }
+  
+  .services-title {
+    white-space: normal;
+    font-size: 1.8rem;
+  }
+
+  .services-left-container, .services-right-container {
+    width: 100%;
   }
 }

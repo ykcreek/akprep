@@ -15,8 +15,11 @@ export default function Services() {
       <div className="services-container">
         
         <header className="services-header">
-          <h2 className="services-title">Our Services & Pricing</h2>
-          <div className="services-accent-line"></div>
+          <div className="services-title-wrapper">
+            <div className="services-line"></div>
+            <h2 className="services-title">Our Services & Pricing</h2>
+            <div className="services-line"></div>
+          </div>
         </header>
 
         <div className="services-content-wrapper">
@@ -47,7 +50,7 @@ export default function Services() {
                 <p className="services-package-description">
                   5 Hours of online/offline time, used however you need.
                 </p>
-                {/*<button className="services-package-button">Get Started</button>*/}
+                <button className="services-package-button">Get Started</button>
             </div>
             <p className="services-package-addon">Pay by the hour going forward</p>
           </div>

@@ -23,10 +23,13 @@ export default function Process() {
     <section id="process" className="process-section">
       <div className="process-container">
         
-        <header className="process-header">
+       <header className="process-header">
+        <div className="process-title-wrapper">
+          <div className="process-line"></div>
           <h2 className="process-title">Transfer Application Timeline</h2>
-          <div className="process-accent-line"></div>
-        </header>
+          <div className="process-line"></div>
+        </div>
+      </header>
 
         <div className="process-timeline">
           {steps.map((step, index) => (
@@ -44,6 +47,9 @@ export default function Process() {
           {/* Connecting line for the timeline */}
           <div className="process-timeline-line"></div>
         </div>
+        <p className="process-disclaimer">
+          Vita provides advising and coaching only; we do not guarantee admission to any institution.
+        </p>
 
       </div>
     </section>

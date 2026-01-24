@@ -1,0 +1,168 @@
+/* StudentModal.css */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95); /* Near white for ultra-professional feel */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content.full-screen-modal {
+  width: 96vw;
+  height: 94vh;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header & Lines Styling */
+.modal-sheet-header {
+  padding: 40px 60px;
+  background: #ffffff;
+}
+
+.list-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.list-title-wrapper h1 {
+  font-family: var(--font-standard);
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #18181b;
+}
+
+.list-line {
+  height: 2px;
+  background: #8e4cf8;
+  flex: 1;
+}
+
+.subtitle-grid {
+  display: flex;
+  gap: 20px;
+  color: #71717a;
+  font-size: 0.9rem;
+  justify-content: center;
+}
+
+.separator { opacity: 0.3; }
+
+/* Main Content Grid */
+.profile-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Equal split for data and preview */
+  gap: 60px;
+  padding: 0 60px 60px 60px;
+}
+
+.section-header-line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.section-header-line h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a1a1aa;
+  white-space: nowrap;
+}
+
+.thin-line {
+  height: 1px;
+  background: #e4e4e7;
+  flex: 1;
+}
+
+/* Data Cards */
+.academic-grid-cards {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+}
+
+.data-card {
+  padding: 16px;
+  background: #f8f8fa;
+  border: 1px solid #f1f1f4;
+  border-radius: 8px;
+}
+
+.data-card label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #71717a;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.data-card p { font-size: 0.95rem; font-weight: 500; color: #18181b; }
+.highlight-purple { color: #8e4cf8 !important; font-weight: 800 !important; font-size: 1.1rem !important; }
+
+/* File Preview Area */
+.file-preview-container {
+  height: 500px;
+  background: #f4f4f5;
+  border-radius: 8px;
+  border: 1px solid #e4e4e7;
+  overflow: hidden;
+}
+
+.document-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.no-file-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #a1a1aa;
+  gap: 12px;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Layout Utilities */
+.modal-inner-scroll { flex: 1; overflow-y: auto; }
+
+.modal-top-nav {
+  padding: 12px 24px;
+  background: #18181b;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-context { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.6; }
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+}

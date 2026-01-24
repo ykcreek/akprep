@@ -1,0 +1,143 @@
+/* StudentList.css */
+
+.student-list-container {
+  width: 100%;
+}
+
+/* --- Header & Lines --- */
+.list-header { margin-bottom: 32px; }
+.list-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 8px;
+}
+.list-title-wrapper h1 {
+  font-family: var(--font-standard);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #18181b;
+  margin: 0;
+  white-space: nowrap;
+}
+.list-line {
+  height: 1px;
+  background: #8e4cf8;
+  flex: 1;
+  opacity: 0.4;
+}
+.list-title-area p { color: #71717a; font-size: 0.95rem; margin: 0; }
+
+/* --- Search & Inputs --- */
+.list-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+.search-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-wrapper input {
+  width: 100%;
+  padding: 12px 12px 12px 42px;
+  background-color: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 6px;
+  font-family: var(--font-standard);
+  color: #18181b;
+}
+.search-wrapper input:focus {
+  outline: none;
+  border-color: #8e4cf8;
+  box-shadow: 0 0 0 3px rgba(142, 76, 248, 0.1);
+}
+.search-wrapper svg { position: absolute; left: 14px; color: #a1a1aa; }
+
+.refresh-btn {
+  background: white;
+  border: 1px solid #e4e4e7;
+  padding: 0 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --- The Table (The fix is here) --- */
+.table-wrapper {
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  /* Fixed layout is required for ellipsis to respect percentages */
+  table-layout: fixed; 
+}
+
+.student-table th {
+  background: #fafafa;
+  padding: 16px 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #71717a;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.student-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid #f4f4f5;
+  vertical-align: middle;
+}
+
+/* --- Truncation Magic --- */
+.truncate-wrapper {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.student-name-cell strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #18181b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.student-name-cell span {
+  display: block;
+  font-size: 0.8rem;
+  color: #a1a1aa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gpa-badge {
+  background: #f5f3ff;
+  color: #8e4cf8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.date-cell { color: #71717a; font-size: 0.85rem; }
+
+.action-dot {
+  background: none;
+  border: none;
+  color: #a1a1aa;
+  cursor: pointer;
+}
+
+

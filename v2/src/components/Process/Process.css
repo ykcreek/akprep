@@ -1,8 +1,9 @@
 /* Process.css */
+
 .process-section {
   padding: 100px 0;
   background-color: #f9f9fb;
-  font-family: "Charter", serif;
+  font-family: var(--font-traditional); /* Inherited from index.css */
 }
 
 .process-container {
@@ -10,26 +11,37 @@
   margin: 0 auto;
 }
 
+/* --- Header with Horizontal Side Lines --- */
 .process-header {
-  text-align: center;
   margin-bottom: 80px;
+  text-align: center;
+}
+
+.process-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
 }
 
 .process-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 15px;
+  white-space: nowrap;
+  letter-spacing: -0.03em;
+  margin: 0;
 }
 
-.process-accent-line {
-  width: 50px;
-  height: 3px;
+.process-line {
+  height: 1px;
   background: #8e4cf8;
-  margin: 0 auto;
+  flex: 1;
+  max-width: 120px;
+  opacity: 0.6;
 }
 
-/* Timeline Layout */
+/* --- Timeline Logic --- */
 .process-timeline {
   display: flex;
   justify-content: space-between;
@@ -38,14 +50,14 @@
   padding-top: 20px;
 }
 
-/* The horizontal line connecting the steps */
+/* Horizontal Rail */
 .process-timeline-line {
   position: absolute;
-  top: 55px; /* Aligns with the dots */
-  left: 5%;
-  right: 5%;
-  height: 2px;
-  background: #eee;
+  top: 55px; 
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: #e2e2e4;
   z-index: 1;
 }
 
@@ -59,7 +71,6 @@
   z-index: 2;
 }
 
-/* The Time/Dot Group */
 .process-time-node {
   display: flex;
   flex-direction: column;
@@ -68,71 +79,113 @@
 }
 
 .process-months {
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.85rem;
+  font-family: var(--font-standard);
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: #8e4cf8;
-  margin-bottom: 15px;
-  background: #f9f9fb; /* Blends with bg to look clean */
-  padding: 0 10px;
+  margin-bottom: 12px;
+  background: #f9f9fb;
+  padding: 0 12px;
 }
 
 .process-dot {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   background: #fff;
-  border: 3px solid #8e4cf8;
+  border: 2px solid #8e4cf8;
   border-radius: 50%;
-  box-shadow: 0 0 0 5px #f9f9fb;
+  box-shadow: 0 0 0 6px #f9f9fb;
 }
 
-/* Step Content */
+/* --- Content Styling --- */
 .process-step-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #111;
   margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
 
 .process-step-description {
   font-size: 1.05rem;
-  color: #515154;
+  color: #555558;
   line-height: 1.6;
+  max-width: 280px;
 }
 
-/* Mobile Responsiveness */
+/* --- Bottom Disclaimer --- */
+.process-disclaimer {
+  margin-top: 100px;
+  padding-top: 30px;
+  border-top: 1px solid #e2e2e4;
+  text-align: center;
+  font-family: var(--font-standard);
+  font-size: 0.8rem;
+  color: #8e8e93;
+  letter-spacing: 0.02em;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* --- Responsive Layout (Mobile) --- */
 @media (max-width: 850px) {
+  .process-title-wrapper {
+    gap: 15px;
+  }
+  
+  .process-line {
+    display: none; /* Simplify header for mobile */
+  }
+
+  .process-title {
+    white-space: normal;
+    font-size: 1.8rem;
+  }
+
   .process-timeline {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 30px;
+    padding-left: 20px;
+    gap: 0;
   }
 
   .process-timeline-line {
     top: 0;
     bottom: 0;
-    left: 36px;
-    width: 2px;
+    left: 25px;
+    width: 1px;
     height: auto;
   }
 
   .process-step {
     flex-direction: row;
     text-align: left;
-    gap: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+    align-items: flex-start;
   }
 
   .process-time-node {
     margin-bottom: 0;
+    margin-right: 25px;
   }
 
   .process-months {
     position: absolute;
-    top: -25px;
-    left: 0;
-    padding-left: 0;
+    top: -24px;
+    left: 45px;
+    padding: 0;
+  }
+
+  .process-step-description {
+    max-width: 100%;
+  }
+
+  .process-disclaimer {
+    margin-top: 40px;
   }
 }

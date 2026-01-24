@@ -1,3 +1,37 @@
+/* --- Added Dashboard & Logout Styles --- */
+
+/* Reset for button-based links like "Dashboard" */
+.navbar-link-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 8px 4px;
+  color: #515154;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-link-btn:hover {
+  color: #8e4cf8;
+}
+
+/* Secondary pill for Logout */
+.logout-btn-nav {
+  background: transparent !important;
+  border: 1.5px solid #e4e4e7 !important;
+  color: #71717a !important;
+}
+
+.logout-btn-nav:hover {
+  border-color: #ef4444 !important;
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.05) !important;
+}
+
+/* --- Your Existing Styles with Minor Updates --- */
+
 .navbar-container {
   width: min(1200px, 92%);
   margin: 0 auto;
@@ -75,6 +109,8 @@
   color: #1d1d1f;
 }
 
+/* --- Mobile Menu Fixes --- */
+
 @media (max-width: 850px) {
   .navbar-hamburger {
     display: block;
@@ -94,6 +130,7 @@
     background: white;
     box-shadow: 0 10px 15px rgba(0,0,0,0.05);
   }
+  
   .navbar-mobile-pill {
     text-align: center;
     padding: 14px;
@@ -102,5 +139,14 @@
     color: white;
     text-decoration: none;
     font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Ensure the mobile logout pill looks distinct */
+  .navbar-mobile-menu .logout-btn-nav {
+    background: #f4f4f5 !important;
+    border: 1px solid #e4e4e7 !important;
+    color: #71717a !important;
   }
 }

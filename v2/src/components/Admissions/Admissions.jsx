@@ -6,8 +6,11 @@ export default function Admissions() {
       <div className="admissions-container">
         
         <header className="admissions-header">
-          <h2 className="admissions-title">What Do Admissions Look For?</h2>
-          <div className="admissions-accent-line"></div>
+          <div className="admissions-title-wrapper">
+            <div className="admissions-line"></div>
+            <h2 className="admissions-title">What Do Admissions Look For?</h2>
+            <div className="admissions-line"></div>
+          </div>
         </header>
 
         {/* Gray placeholder for your future image */}

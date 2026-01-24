@@ -1,0 +1,92 @@
+/* Loading.css */
+.loading-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* Clean white background */
+  z-index: 9999;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s;
+}
+
+.loading-content {
+  text-align: center;
+  width: 300px;
+}
+
+/* Brand Styling */
+.loading-brand {
+  font-family: var(--font-standard);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: #18181b;
+  margin-bottom: 24px;
+  animation: pulseBrand 2s ease-in-out infinite;
+}
+
+.loading-brand span {
+  color: #8e4cf8;
+  font-weight: 300;
+}
+
+/* The Vita Line Animation */
+.loading-line-wrapper {
+  height: 2px;
+  width: 100%;
+  background-color: #f4f4f5;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-line-active {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: #8e4cf8;
+  left: -50%;
+  animation: slideLine 1.5s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Status Text */
+.loading-status {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a1a1aa;
+  font-weight: 500;
+}
+
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Keyframes */
+@keyframes slideLine {
+  0% {
+    left: -50%;
+    width: 30%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    left: 100%;
+    width: 30%;
+  }
+}
+
+@keyframes pulseBrand {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+}

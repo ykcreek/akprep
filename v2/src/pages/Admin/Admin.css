@@ -1,0 +1,22 @@
+/* Admin.css */
+
+.admin-page-layout {
+  display: flex; /* Aligns Sidebar and Content side-by-side */
+  min-height: 100vh;
+  background-color: #f8f8fa;
+}
+
+.admin-content {
+  /* This pushes the content exactly to the right of your 260px sidebar */
+  margin-left: 260px; 
+  flex: 1;
+  padding: 40px;
+  min-width: 0; /* Prevents table from breaking flexbox width */
+}
+
+/* Ensure the scroll container doesn't overflow horizontally */
+.admin-scroll-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
