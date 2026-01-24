@@ -1,0 +1,138 @@
+/* Process.css */
+.process-section {
+  padding: 100px 0;
+  background-color: #f9f9fb;
+  font-family: "Charter", serif;
+}
+
+.process-container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.process-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.process-accent-line {
+  width: 50px;
+  height: 3px;
+  background: #8e4cf8;
+  margin: 0 auto;
+}
+
+/* Timeline Layout */
+.process-timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  gap: 40px;
+  padding-top: 20px;
+}
+
+/* The horizontal line connecting the steps */
+.process-timeline-line {
+  position: absolute;
+  top: 55px; /* Aligns with the dots */
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: #eee;
+  z-index: 1;
+}
+
+.process-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* The Time/Dot Group */
+.process-time-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.process-months {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8e4cf8;
+  margin-bottom: 15px;
+  background: #f9f9fb; /* Blends with bg to look clean */
+  padding: 0 10px;
+}
+
+.process-dot {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border: 3px solid #8e4cf8;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #f9f9fb;
+}
+
+/* Step Content */
+.process-step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.process-step-description {
+  font-size: 1.05rem;
+  color: #515154;
+  line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 850px) {
+  .process-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+
+  .process-timeline-line {
+    top: 0;
+    bottom: 0;
+    left: 36px;
+    width: 2px;
+    height: auto;
+  }
+
+  .process-step {
+    flex-direction: row;
+    text-align: left;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .process-time-node {
+    margin-bottom: 0;
+  }
+
+  .process-months {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,143 @@
+/* AboutUs.css */
+.about-us-page {
+  background-color: #fff;
+  font-family: "Charter", serif;
+  color: #1a1a1a;
+}
+
+/* Hero Section */
+.about-us-hero {
+  padding: 120px 0 60px 0;
+  text-align: center;
+  background: linear-gradient(to bottom, #f9f9fb, #ffffff);
+}
+
+.about-us-hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.about-us-hero-subtitle {
+  font-size: 1rem;
+  color: #6e6e73;
+  font-style: italic;
+}
+
+.about-us-accent-line {
+  width: 60px;
+  height: 3px;
+  background: #8e4cf8;
+  margin: 25px auto;
+}
+
+/* Founder Sections */
+.about-us-founder-section {
+  padding: 80px 0;
+}
+
+.about-us-founder-section:nth-child(even) {
+  background-color: #fcfcfd;
+}
+
+.about-us-container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.about-us-founder-grid {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Flip logic for every other founder */
+.about-us-reverse .about-us-founder-grid {
+  flex-direction: row-reverse;
+}
+
+/* Image Styling */
+.about-us-image-area {
+  flex: 1;
+}
+
+.about-us-image-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.about-us-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text Styling */
+.about-us-text-area {
+  flex: 1.2;
+}
+
+.about-us-edu-tag {
+  display: inline-block;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #8e4cf8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+}
+
+.about-us-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.about-us-role {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #515154;
+  margin-bottom: 25px;
+}
+
+.about-us-bio {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Specialty Pills */
+.about-us-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-us-spec-pill {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #f0f0f2;
+  padding: 6px 14px;
+  border-radius: 4px;
+  color: #515154;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-us-founder-grid, 
+  .about-us-reverse .about-us-founder-grid {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .about-us-name { font-size: 2.5rem; }
+  .about-us-specialties { justify-content: center; }
+}

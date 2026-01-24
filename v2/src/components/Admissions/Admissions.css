@@ -1,0 +1,80 @@
+/* Admissions.css */
+.admissions-section {
+  padding: 100px 0;
+  background-color: #f9f9fb; /* Slightly off-white to distinguish from About */
+  font-family: "Charter", serif;
+}
+
+.admissions-container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admissions-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.admissions-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  letter-spacing: -0.01em;
+}
+
+/* Elegant line under the title */
+.admissions-accent-line {
+  width: 60px;
+  height: 3px;
+  background-color: #8e4cf8;
+  margin: 0 auto;
+}
+
+/* Picture Placeholder Logic */
+.admissions-picture-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+}
+
+.admissions-picture-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Standard cinematic/graphic ratio */
+  background-color: #e5e5e7;
+  border: 2px dashed #d1d1d6; /* Dashed border indicates a placeholder */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.admissions-placeholder-text {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.9rem;
+  color: #8e8e93;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Subtle hover effect for the placeholder */
+.admissions-picture-placeholder:hover {
+  background-color: #dedee0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admissions-title {
+    font-size: 2rem;
+  }
+  
+  .admissions-section {
+    padding: 60px 0;
+  }
+}

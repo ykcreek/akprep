@@ -1,0 +1,163 @@
+/* Services.css */
+.services-section {
+  padding: 100px 0;
+  background-color: #fff;
+  font-family: "Charter", serif;
+}
+
+.services-container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.services-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.services-accent-line {
+  width: 50px;
+  height: 3px;
+  background: #8e4cf8;
+  margin: 15px auto;
+}
+
+/* Layout Wrapper */
+.services-content-wrapper {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+/* Left Side: Hourly Details */
+.services-left-container {
+  flex: 1.2;
+}
+
+.services-price-tag {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: baseline;
+  color: #1a1a1a;
+}
+
+.services-currency { font-size: 1.5rem; font-weight: 600; vertical-align: top; }
+.services-amount { font-size: 4rem; font-weight: 800; line-height: 1; }
+.services-unit { font-size: 1.2rem; color: #6e6e73; margin-left: 5px; }
+
+.services-bullet-list {
+  list-style: none;
+  padding: 0;
+}
+
+.services-bullet-item {
+  display: flex;
+  gap: 12px;
+  font-size: 1.15rem;
+  color: #444;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.services-bullet-icon {
+  color: #8e4cf8;
+  font-weight: bold;
+}
+
+/* Right Side: Package Card */
+.services-right-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-package-card {
+  width: 100%;
+  background: #f9f9fb;
+  border: 1px solid rgba(142, 76, 248, 0.2);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.services-package-card:hover {
+  transform: translateY(-5px);
+}
+
+.services-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #8e4cf8;
+  color: white;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+
+.services-package-title {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.services-package-price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #8e4cf8;
+  margin-bottom: 20px;
+}
+
+.services-package-description {
+  font-size: 1.1rem;
+  color: #515154;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.services-package-button {
+  width: 100%;
+  padding: 16px;
+  background: #1d1d1f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.services-package-button:hover {
+  background: #000;
+}
+
+.services-package-addon {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #8e4cf8;
+  font-style: italic;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .services-content-wrapper {
+    flex-direction: column;
+    gap: 50px;
+  }
+}

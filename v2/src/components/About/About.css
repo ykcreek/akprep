@@ -1,0 +1,180 @@
+/* About.css */
+.about-section {
+  padding: 100px 0;
+  background-color: #fff;
+  font-family: "Charter", "Bitstream Charter", serif;
+  color: #1a1a1a;
+}
+
+.about-container {
+  width: min(1150px, 92%);
+  margin: 0 auto;
+}
+
+/* Centering Logic for the Top Header */
+.about-header-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the tagline and the title-container */
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers Logo + Text horizontally */
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.about-logo-img {
+  height: 64px;
+  width: auto;
+}
+
+.about-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8e4cf8;
+  margin: 0;
+}
+
+.about-vita-tagline {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Main Layout: Vertically Centered Content */
+.about-vita-mission-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Vertically centers images against the text side */
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.about-vita-mission {
+  flex: 1.2;
+}
+
+.about-vita-mission-title {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: -0.02em;
+}
+
+.about-vita-mission-title span {
+  color: #8e4cf8;
+}
+
+.about-vita-mission-subtitle {
+  font-size: 1.4rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+/* List Styling */
+.about-vita-mission-list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  text-align: left; /* Keep text left-aligned for readability */
+}
+
+.about-vita-mission-item {
+  border-left: 2px solid #eee;
+  padding-left: 15px;
+}
+
+.about-vita-mission-item strong {
+  display: block;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+
+.about-vita-mission-item p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.about-founder-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Space between image and text */
+}
+
+.about-vita-founder-image {
+  width: 100%; /* Now takes up full width of the card */
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* Label Styling */
+.about-founder-label {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Aligns with the border-left style used in your list items */
+}
+
+.about-founder-name {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.about-founder-edu {
+  font-family: "Charter", serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #8e4cf8; /* Subtle brand color for the school info */
+  margin-top: 2px;
+}
+
+/* Ensure the main images container still behaves horizontally */
+.about-vita-founders-images-container {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  align-items: flex-start; /* Keeps the cards aligned at the top */
+}
+
+@media (max-width: 950px) {
+  .about-founder-label {
+    text-align: center; /* Center labels on mobile since the section stacks */
+  }
+}
+@media (max-width: 950px) {
+  .about-vita-mission-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .about-vita-mission-list-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-vita-mission-item {
+    border-left: none;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+  }
+}

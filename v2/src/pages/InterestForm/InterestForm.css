@@ -1,0 +1,160 @@
+/* InterestForm.css */
+.gform-section {
+  padding: 60px 0;
+  background-color: #f0ebf8;
+  min-height: 100vh;
+  font-family: 'Charter', serif;
+}
+
+.gform-container {
+  width: min(770px, 95%);
+  margin: 0 auto;
+}
+
+/* Increased spacing between cards */
+.gform-header-card, 
+.gform-card {
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #dadce0;
+  margin-bottom: 24px; /* Increased from 12px for better separation */
+  padding: 24px;
+  position: relative;
+}
+
+.gform-top-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: #673ab7;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Red Required Indicators */
+.gform-required-notice {
+  color: #d93025; /* Google Forms red */
+  font-size: 0.85rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin-top: 15px;
+}
+
+.required-star {
+  color: #d93025;
+  margin-left: 2px;
+}
+
+/* Labels */
+.gform-input-group label {
+  display: block;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #202124;
+  margin-bottom: 12px;
+}
+
+.gform-integrated-header {
+  font-size: 1.1rem !important;
+}
+
+/* Grid Spacing */
+.gform-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px; /* Increased gap within the grid */
+}
+
+.gform-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+/* Input Fields */
+.gform-input-group input, 
+.gform-input-group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #dadce0;
+  padding: 10px 0;
+  font-family: 'Charter', serif;
+  font-size: 1rem;
+  background: transparent;
+  transition: border-bottom 0.2s ease;
+}
+
+.gform-input-group input:focus, 
+.gform-input-group textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #673ab7;
+}
+
+.gform-medium-input {
+  max-width: 80%;
+}
+
+/* Checkbox Section */
+.gform-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gform-check-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.gform-check-text {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.95rem;
+}
+
+.gform-sub-options {
+  margin-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-left: 2px solid #f0ebf8;
+  padding-left: 15px;
+}
+
+/* Footer */
+.gform-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.gform-submit-btn {
+  background-color: #673ab7;
+  color: white;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.gform-submit-btn:hover {
+  background-color: #512da8;
+}
+
+.gform-disclaimer {
+  font-size: 0.8rem;
+  color: #70757a;
+}
+
+@media (max-width: 600px) {
+  .gform-grid, .gform-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
