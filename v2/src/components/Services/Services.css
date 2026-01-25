@@ -31,6 +31,7 @@
   white-space: nowrap;
   letter-spacing: -0.03em;
   margin: 0;
+  font-family: "Charter", serif;
 }
 
 .services-line {
@@ -191,6 +192,7 @@
   .services-title {
     white-space: normal;
     font-size: 1.8rem;
+    
   }
 
   .services-left-container, .services-right-container {

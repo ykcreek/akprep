@@ -9,7 +9,9 @@ export default function Services() {
     "Activity spikes, resume & LOCI guidance",
     "Recommendation letter strategy"
   ];
-
+  const handlePayment = () => {
+    window.location.href = "https://buy.stripe.com/14AaEXdqw12p40d5yB18c04";
+  };
   return (
     <section id="services" className="services-section">
       <div className="services-container">
@@ -44,13 +46,12 @@ export default function Services() {
           {/* Right: Starter Package */}
           <div className="services-right-container">
             <div className="services-package-card">
-                <span className="services-badge">Recommended</span>
-                <h3 className="services-package-title">Starter Package</h3>
-                <div className="services-package-price">$180</div>
+                <h3 className="services-package-title">Vita Prep Package</h3>
+                <div className="services-package-price">$200</div>
                 <p className="services-package-description">
                   5 Hours of online/offline time, used however you need.
                 </p>
-                <button className="services-package-button">Get Started</button>
+                <button className="services-package-button" onClick={handlePayment} >Get Started</button>
             </div>
             <p className="services-package-addon">Pay by the hour going forward</p>
           </div>

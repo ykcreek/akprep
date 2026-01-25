@@ -3,11 +3,11 @@ import "./Results.css";
 export default function Results() {
   const colleges = [
     { name: "NYU Stern", logo: "/logos/nyu.avif" },
-    { name: "Columbia", logo: "/logos/columbia.png" },
     { name: "IU Kelley", logo: "/logos/kelley.png" },
+    { name: "UVA", logo: "/logos/uva.png" },
     { name: "Purdue", logo: "/logos/purdue.png" },
-    { name: "Rutgers NB", logo: "/logos/rutgers.png" },
-    { name: "UMass Amherst", logo: "/logos/umass.png" },
+    { name: "UPenn", logo: "/logos/penn.png" },
+    { name: "UMass Amherst", logo: "/logos/umass.jpg" },
     { name: "UMich", logo: "/logos/umich.png" },
     { name: "Vanderbilt", logo: "/logos/vandy.png" },
   ];
@@ -30,7 +30,6 @@ export default function Results() {
                 className="results-logo-img" 
                 onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
               />
-              <span className="results-logo-fallback">{college.name}</span>
             </div>
           ))}
         </div>

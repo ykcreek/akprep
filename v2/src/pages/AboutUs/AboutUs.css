@@ -1,44 +1,9 @@
 /* AboutUs.css */
+
 .about-us-page {
   background-color: #fff;
-  font-family: "Charter", serif;
   color: #1a1a1a;
-}
-
-/* Hero Section */
-.about-us-hero {
-  padding: 120px 0 60px 0;
-  text-align: center;
-  background: linear-gradient(to bottom, #f9f9fb, #ffffff);
-}
-
-.about-us-hero-title {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  letter-spacing: -0.02em;
-}
-
-.about-us-hero-subtitle {
-  font-size: 1rem;
-  color: #6e6e73;
-  font-style: italic;
-}
-
-.about-us-accent-line {
-  width: 60px;
-  height: 3px;
-  background: #8e4cf8;
-  margin: 25px auto;
-}
-
-/* Founder Sections */
-.about-us-founder-section {
-  padding: 80px 0;
-}
-
-.about-us-founder-section:nth-child(even) {
-  background-color: #fcfcfd;
+  line-height: 1.8;
 }
 
 .about-us-container {
@@ -46,98 +11,152 @@
   margin: 0 auto;
 }
 
-.about-us-founder-grid {
+/* --- Hero Section --- */
+.about-us-hero {
+  padding: 100px 0 60px 0;
+  text-align: center;
+  background: #fcfcfd;
+  margin-bottom: 60px;
+}
+
+.about-us-title-wrapper {
   display: flex;
   align-items: center;
-  gap: 80px;
+  justify-content: center;
+  gap: 24px;
 }
 
-/* Flip logic for every other founder */
-.about-us-reverse .about-us-founder-grid {
-  flex-direction: row-reverse;
+.about-us-title {
+  font-family: "Charter", serif;
+  font-size: 2.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-/* Image Styling */
-.about-us-image-area {
+.about-us-line {
+  height: 1px;
+  background: #8e4cf8;
   flex: 1;
+  max-width: 500px;
+  opacity: 0.4;
 }
 
-.about-us-image-frame {
-  position: relative;
-  aspect-ratio: 4 / 5;
+.founder-line{
+  height: 1px;
+  background: #8e4cf8;
+  width: 80%;
+  margin: 0 auto 60px auto;
+  opacity: 0.4;
+}
+
+/* --- Content Sections --- */
+.about-narrative-section, .about-founder-detail {
+  padding: 30px 0;
+}
+
+.stats-highlight {
+  color: #8e4cf8;
+  font-weight: 700;
+  letter-spacing: 0.02em; 
+}
+
+.krissh-bg { background-color: #ffffff; }
+.arnav-bg { background-color: #fcfcfd; }
+
+.narrative-content h2, .founder-text-content h2 {
+  font-family: "Charter", serif;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+/* --- Paragraph Styling: Indents & Alignment --- */
+.narrative-content p, .founder-text-content p {
+  text-align: left;
+  font-size: 1.1rem;
+  margin-bottom: 0; /* Removing bottom margin to allow indents to handle flow */
+  color: #3f3f46;
+}
+
+/* Traditional indenting: First p is flush, others are indented */
+.narrative-content p + p, 
+.founder-text-content p + p {
+  text-indent: 40px; 
+}
+
+.narrative-emphasis {
+  padding: 30px;
+  background: #f8f3ff;
+  border-left: 4px solid #8e4cf8;
+  font-weight: 500;
+  margin: 40px 0 !important;
+  text-indent: 0 !important; /* No indent for emphasis box */
+}
+
+/* --- Floating Image Logic --- */
+.founder-story-flow {
+  display: block;
+  width: 100%;
+}
+
+.founder-image-wrapper {
+  float: left;
+  width: 350px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+/* Swap for Arnav */
+.arnav-bg .founder-image-wrapper {
+  float: right;
+  margin-right: 0;
+  margin-left: 50px;
+}
+
+.image-frame-v2 {
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.about-us-img {
+.image-frame-v2 img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
 }
 
-/* Text Styling */
-.about-us-text-area {
-  flex: 1.2;
-}
-
-.about-us-edu-tag {
-  display: inline-block;
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.8rem;
+.image-label-v2 {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #8e4cf8;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 15px;
 }
 
-.about-us-name {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 5px;
+/* Clearfix */
+.founder-story-flow::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.about-us-role {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #515154;
-  margin-bottom: 25px;
-}
-
-.about-us-bio {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-/* Specialty Pills */
-.about-us-specialties {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.about-us-spec-pill {
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: #f0f0f2;
-  padding: 6px 14px;
-  border-radius: 4px;
-  color: #515154;
-}
-
-/* Responsive */
+/* --- Responsive --- */
 @media (max-width: 900px) {
-  .about-us-founder-grid, 
-  .about-us-reverse .about-us-founder-grid {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px;
+  .about-us-hero { padding: 60px 0; }
+  .about-us-line { display: none; }
+  
+  .founder-image-wrapper, .arnav-bg .founder-image-wrapper {
+    float: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 40px auto;
   }
 
-  .about-us-name { font-size: 2.5rem; }
-  .about-us-specialties { justify-content: center; }
+  .narrative-content p + p, 
+  .founder-text-content p + p {
+    text-indent: 0; /* Remove indents on mobile for better readability */
+    margin-bottom: 20px;
+  }
 }

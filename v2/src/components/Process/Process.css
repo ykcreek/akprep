@@ -3,7 +3,8 @@
 .process-section {
   padding: 100px 0;
   background-color: #f9f9fb;
-  font-family: var(--font-traditional); /* Inherited from index.css */
+  font-family: "Charter", serif;
+
 }
 
 .process-container {
@@ -31,6 +32,7 @@
   white-space: nowrap;
   letter-spacing: -0.03em;
   margin: 0;
+  font-family: "Charter", serif;
 }
 
 .process-line {

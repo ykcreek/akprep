@@ -20,7 +20,7 @@ export default function About() {
         <div className="about-vita-mission-container">
           <div className="about-vita-mission">
             <h1 className="about-vita-mission-title">
-              Guiding students into their <span>dream schools.</span>
+              Guiding Students Into Their <span>Dream Schools.</span>
             </h1>
             <h3 className="about-vita-mission-subtitle">
               We help students craft standout transfer applications with proven, student-led systems.

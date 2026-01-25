@@ -51,9 +51,7 @@ export default function Navbar() {
           <a href="/interest-form" className="navbar-link">Interest Form</a>
 
           {/* Dynamic Dashboard/Schedule Link */}
-          {!loggedIn ? (
-            <a href="/student-form" className="navbar-link">Schedule a Call</a>
-          ) : (
+          {loggedIn && (
             <button 
               className="navbar-link-btn" 
               onClick={() => navigate(role === "admin" ? "/admin" : "/client")}

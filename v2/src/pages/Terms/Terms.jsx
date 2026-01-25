@@ -76,7 +76,7 @@ export default function Terms() {
         </section>
 
         <footer className="terms-footer">
-          <p>Official Terms of Vita Prep Consultancy • <strong>service.vitaprep@gmail.com</strong></p>
+          <p>Official Terms of Vita Prep • <strong>service.vitaprep@gmail.com</strong></p>
         </footer>
       </div>
     </div>
