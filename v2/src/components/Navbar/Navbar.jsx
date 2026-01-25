@@ -79,32 +79,33 @@ export default function Navbar() {
           <a onClick={() => setOpen(false)} href="/home" className="navbar-mobile-item">Home</a>
           <a onClick={() => setOpen(false)} href="/about-us" className="navbar-mobile-item">About Us</a>
           <a onClick={() => setOpen(false)} href="/faq" className="navbar-mobile-item">FAQ</a>
+          <a onClick={() => setOpen(false)} href="/interest-form" className="navbar-mobile-item">Interest Form</a>
           
           <div className="navbar-mobile-actions">
-            {!loggedIn ? (
-              <>
-                <a href="/interest-form" className="navbar-mobile-pill" onClick={() => setOpen(false)}>Schedule a Call</a>
-                <button 
-                  className="navbar-mobile-pill navbar-login-btn" 
-                  onClick={() => { navigate('/login'); setOpen(false); }}
-                >
-                  Login
-                </button>
-              </>
-            ) : (
-              <>
-                <button 
-                  className="navbar-mobile-pill" 
-                  onClick={() => { navigate(role === "admin" ? "/admin" : "/client"); setOpen(false); }}
-                >
-                  Dashboard
-                </button>
-                <button className="navbar-mobile-pill navbar-logout-btn" onClick={handleLogout}>
-                  Logout
-                </button>
-              </>
-            )}
-          </div>
+          {!loggedIn ? (
+            <>
+              {/* Schedule a Call was removed from here */}
+              <button 
+                className="navbar-mobile-pill navbar-login-btn" 
+                onClick={() => { navigate('/login'); setOpen(false); }}
+              >
+                Login
+              </button>
+            </>
+          ) : (
+            <>
+              <button 
+                className="navbar-mobile-pill" 
+                onClick={() => { navigate(role === "admin" ? "/admin" : "/client"); setOpen(false); }}
+              >
+                Dashboard
+              </button>
+              <button className="navbar-mobile-pill navbar-logout-btn" onClick={handleLogout}>
+                Logout
+              </button>
+            </>
+          )}
+        </div>
         </div>
       )}
     </nav>
